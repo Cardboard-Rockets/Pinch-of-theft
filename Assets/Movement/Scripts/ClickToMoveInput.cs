@@ -17,6 +17,7 @@ namespace PinchOfTheft.Movement
 
         private void Update()
         {
+            if (cameraManager != null && cameraManager.InputLocked) return;
             if (Mouse.current == null || !Mouse.current.rightButton.wasPressedThisFrame) return;
             if (menu == null || menu.IsOpen || cameraManager == null || mover == null || marker == null) return;
             if (cameraManager.ActiveCamera == null) return;
@@ -30,3 +31,4 @@ namespace PinchOfTheft.Movement
         }
     }
 }
+

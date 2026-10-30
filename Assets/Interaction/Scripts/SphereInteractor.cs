@@ -20,6 +20,7 @@ namespace PinchOfTheft.Interaction
 
         private void Update()
         {
+            if (cameraManager != null && cameraManager.InputLocked) { ResetTarget(); return; }
             Keyboard keyboard = Keyboard.current;
             if (keyboard == null) { ResetTarget(); return; }
             if (!keyboard.eKey.isPressed) waitForRelease = false;
@@ -44,7 +45,7 @@ namespace PinchOfTheft.Interaction
             target = next;
             if (!HasTarget) return;
             if (cameraChanged || !keyboard.eKey.isPressed || waitForRelease) progress = 0f;
-            else progress += Time.deltaTime / Mathf.Max(0.01f, holdDuration);
+            else progress += Time.deltaTime / Mathf.Max(0.01f, target.HoldDuration > 0f ? target.HoldDuration : holdDuration);
             target.SetVisual(progress, true);
             if (progress < 1f) return;
             target.Complete();
@@ -61,3 +62,4 @@ namespace PinchOfTheft.Interaction
         private void OnDisable() => ResetTarget();
     }
 }
+

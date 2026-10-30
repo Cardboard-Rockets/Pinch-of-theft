@@ -49,6 +49,7 @@ namespace PinchOfTheft.CCTV
 
         private void LateUpdate()
         {
+            if (manager != null && manager.InputLocked) return;
             if (crosshair != null)
                 crosshair.SetActive(!IsOpen && Cursor.lockState == CursorLockMode.Locked);
             if (!IsOpen) return;
@@ -95,5 +96,6 @@ namespace PinchOfTheft.CCTV
         }
     }
 }
+
 
 

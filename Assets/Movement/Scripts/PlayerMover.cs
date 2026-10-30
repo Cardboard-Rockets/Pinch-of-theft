@@ -8,6 +8,8 @@ namespace PinchOfTheft.Movement
     {
         private NavMeshAgent agent;
         private bool warned;
+        public Vector3 Destination => agent != null && agent.isActiveAndEnabled && agent.isOnNavMesh ? agent.destination : transform.position;
+        public bool PathPending => agent != null && agent.isActiveAndEnabled && agent.isOnNavMesh && agent.pathPending;
         public bool IsMoving => agent != null && agent.isActiveAndEnabled && agent.isOnNavMesh &&
             (agent.pathPending || (agent.hasPath && agent.remainingDistance > agent.stoppingDistance));
 
@@ -29,3 +31,4 @@ namespace PinchOfTheft.Movement
         }
     }
 }
+
