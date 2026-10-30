@@ -1,3 +1,4 @@
+using PinchOfTheft.Interaction;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -8,6 +9,7 @@ namespace PinchOfTheft.CCTV
     {
         [SerializeField] private CCTVCamera[] cameras;
         [SerializeField] private CameraMenuUI menu;
+        [SerializeField] private SphereInteractor interactor;
         [SerializeField, Min(0f)] private float mouseSensitivity = 0.15f;
         public IReadOnlyList<CCTVCamera> Cameras => cameras;
         public CCTVCamera ActiveCamera { get; private set; }
@@ -16,6 +18,17 @@ namespace PinchOfTheft.CCTV
         {
             cameras = views;
             menu = cameraMenu;
+        }
+
+        public void UnlockGroup(int group)
+        {
+            if (cameras == null) return;
+            foreach (CCTVCamera camera in cameras)
+            {
+                if (camera == null || camera.Group != group) continue;
+                camera.SetAccessible(true);
+                camera.SetVisibleInMenu(true);
+            }
         }
 
         private void Start()
@@ -51,7 +64,7 @@ namespace PinchOfTheft.CCTV
             if (menu.IsOpen || ActiveCamera == null) return;
 
             if (keyboard != null && keyboard.qKey.wasPressedThisFrame) SwitchCamera(-1);
-            else if (keyboard != null && keyboard.eKey.wasPressedThisFrame) SwitchCamera(1);
+            else if (keyboard != null && keyboard.eKey.wasPressedThisFrame && (interactor == null || !interactor.HasTarget)) SwitchCamera(1);
             if (Mouse.current != null)
                 ActiveCamera.Rotate(Mouse.current.delta.ReadValue() * mouseSensitivity);
         }
@@ -88,7 +101,7 @@ namespace PinchOfTheft.CCTV
             CCTVCamera replacement = null;
             if (ActiveCamera != null)
             {
-                // Circular slot distance; ties prefer the lower slot number.
+                
                 int nearestDistance = int.MaxValue;
                 for (int slot = 1; slot <= 4; slot++)
                 {
@@ -127,6 +140,7 @@ namespace PinchOfTheft.CCTV
         }
     }
 }
+
 
 
 

@@ -24,6 +24,7 @@ namespace PinchOfTheft.CCTV
         public int Slot => slot;
         public string CameraName => $"{group}{slot}";
         public bool IsVisibleInMenu => isVisibleInMenu;
+        public void SetVisibleInMenu(bool value) => isVisibleInMenu = value;
 
         private void Awake()
         {
@@ -48,4 +49,5 @@ namespace PinchOfTheft.CCTV
         }
     }
 }
+
 
