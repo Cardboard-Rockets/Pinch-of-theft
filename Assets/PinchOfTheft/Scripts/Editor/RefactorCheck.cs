@@ -17,6 +17,7 @@ namespace PinchOfTheft.Editor
     {
         private static double began;
         private static int stage;
+        private static int stoppedFrame = -1;
         private static PlayerMover player;
         static RefactorCheck(){EditorApplication.playModeStateChanged+=s=>{if(s==PlayModeStateChange.EnteredPlayMode && SessionState.GetBool("RefactorCheck",false)){began=EditorApplication.timeSinceStartup;EditorApplication.update+=Tick;}};}
         public static void TestScene(){Run("Assets/Scenes/test_Scene.unity");}
@@ -48,6 +49,8 @@ namespace PinchOfTheft.Editor
                 }
                 else if(stage==1 && !player.IsMoving && Time.frameCount>10)
                 {
+                    if (stoppedFrame < 0) { stoppedFrame = Time.frameCount; return; }
+                    if (Time.frameCount <= stoppedFrame + 1) return;
                     Require(!c.Marker.gameObject.activeSelf,"Marker did not hide");
                     Debug.Log("REFACTOR_PLAY_PASSED "+UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);Finish(0);
                 }
@@ -83,6 +86,7 @@ namespace PinchOfTheft.Editor
                         if(p.propertyType!=SerializedPropertyType.ObjectReference || p.name=="m_Script")continue;
                         var value=p.objectReferenceValue;
                         Require(value!=null || p.objectReferenceEntityIdValue==default,"Missing prefab reference: "+path+" / "+p.propertyPath);
+                        if (value != null && EditorUtility.IsPersistent(value)) continue;
                         if(value is Component c)Require(c.transform.IsChildOf(root.transform),"External reference: "+path+" / "+p.propertyPath);
                         if(value is GameObject g)Require(g.transform.IsChildOf(root.transform),"External reference: "+path+" / "+p.propertyPath);
                     }

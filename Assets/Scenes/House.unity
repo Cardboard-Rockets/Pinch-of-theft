@@ -188,6 +188,10 @@ PrefabInstance:
       value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 567474362662108778, guid: 8465cb1cf5ccb4648a783d5ac1b930a8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 567474362662108778, guid: 8465cb1cf5ccb4648a783d5ac1b930a8, type: 3}
       propertyPath: field of view
       value: 64
       objectReference: {fileID: 0}
@@ -254,13 +258,50 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2738665295905921778, guid: 8465cb1cf5ccb4648a783d5ac1b930a8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 17322251}
+    - targetCorrespondingSourceObject: {fileID: 2738665295905921778, guid: 8465cb1cf5ccb4648a783d5ac1b930a8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 17322252}
   m_SourcePrefab: {fileID: 100100000, guid: 8465cb1cf5ccb4648a783d5ac1b930a8, type: 3}
 --- !u!4 &17322249 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8465cb1cf5ccb4648a783d5ac1b930a8, type: 3}
   m_PrefabInstance: {fileID: 17322248}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &17322250 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2738665295905921778, guid: 8465cb1cf5ccb4648a783d5ac1b930a8, type: 3}
+  m_PrefabInstance: {fileID: 17322248}
+  m_PrefabAsset: {fileID: 0}
+--- !u!81 &17322251
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 17322250}
+  m_Enabled: 0
+--- !u!114 &17322252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 17322250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bc218de871f414409814b7974eb647a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: PinchOfTheft.Runtime::PinchOfTheft.CCTV.CCTVCamera
+  group: 2
+  slot: 3
+  isVisibleInMenu: 0
+  maxYawAngle: 40
+  maxPitchAngle: 30
+  isAccessible: 0
 --- !u!43 &21749296
 Mesh:
   m_ObjectHideFlags: 0
@@ -901,6 +942,130 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: eb6e7ae125b864362a69862cab34b2db, type: 3}
   m_PrefabInstance: {fileID: 115272088}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &125191570
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1265796195152486481, guid: 97cd41aae8fd2a942a5e3107400cc9b3, type: 3}
+      propertyPath: cameras.Array.size
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 1265796195152486481, guid: 97cd41aae8fd2a942a5e3107400cc9b3, type: 3}
+      propertyPath: 'cameras.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2106608591}
+    - target: {fileID: 1265796195152486481, guid: 97cd41aae8fd2a942a5e3107400cc9b3, type: 3}
+      propertyPath: 'cameras.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1767347359}
+    - target: {fileID: 1265796195152486481, guid: 97cd41aae8fd2a942a5e3107400cc9b3, type: 3}
+      propertyPath: 'cameras.Array.data[2]'
+      value: 
+      objectReference: {fileID: 867384737}
+    - target: {fileID: 1265796195152486481, guid: 97cd41aae8fd2a942a5e3107400cc9b3, type: 3}
+      propertyPath: 'cameras.Array.data[3]'
+      value: 
+      objectReference: {fileID: 888927400}
+    - target: {fileID: 1265796195152486481, guid: 97cd41aae8fd2a942a5e3107400cc9b3, type: 3}
+      propertyPath: 'cameras.Array.data[4]'
+      value: 
+      objectReference: {fileID: 270797033}
+    - target: {fileID: 1265796195152486481, guid: 97cd41aae8fd2a942a5e3107400cc9b3, type: 3}
+      propertyPath: 'cameras.Array.data[5]'
+      value: 
+      objectReference: {fileID: 1495912682}
+    - target: {fileID: 1265796195152486481, guid: 97cd41aae8fd2a942a5e3107400cc9b3, type: 3}
+      propertyPath: 'cameras.Array.data[6]'
+      value: 
+      objectReference: {fileID: 233353067}
+    - target: {fileID: 1265796195152486481, guid: 97cd41aae8fd2a942a5e3107400cc9b3, type: 3}
+      propertyPath: 'cameras.Array.data[7]'
+      value: 
+      objectReference: {fileID: 687622330}
+    - target: {fileID: 1265796195152486481, guid: 97cd41aae8fd2a942a5e3107400cc9b3, type: 3}
+      propertyPath: 'cameras.Array.data[8]'
+      value: 
+      objectReference: {fileID: 1492769878}
+    - target: {fileID: 1265796195152486481, guid: 97cd41aae8fd2a942a5e3107400cc9b3, type: 3}
+      propertyPath: 'cameras.Array.data[9]'
+      value: 
+      objectReference: {fileID: 17322252}
+    - target: {fileID: 1265796195152486481, guid: 97cd41aae8fd2a942a5e3107400cc9b3, type: 3}
+      propertyPath: 'cameras.Array.data[10]'
+      value: 
+      objectReference: {fileID: 1264226478}
+    - target: {fileID: 1265796195152486481, guid: 97cd41aae8fd2a942a5e3107400cc9b3, type: 3}
+      propertyPath: 'cameras.Array.data[11]'
+      value: 
+      objectReference: {fileID: 619937629}
+    - target: {fileID: 1265796195152486481, guid: 97cd41aae8fd2a942a5e3107400cc9b3, type: 3}
+      propertyPath: 'cameras.Array.data[12]'
+      value: 
+      objectReference: {fileID: 313457406}
+    - target: {fileID: 4363604249307989158, guid: 97cd41aae8fd2a942a5e3107400cc9b3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4363604249307989158, guid: 97cd41aae8fd2a942a5e3107400cc9b3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4363604249307989158, guid: 97cd41aae8fd2a942a5e3107400cc9b3, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4363604249307989158, guid: 97cd41aae8fd2a942a5e3107400cc9b3, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4363604249307989158, guid: 97cd41aae8fd2a942a5e3107400cc9b3, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4363604249307989158, guid: 97cd41aae8fd2a942a5e3107400cc9b3, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4363604249307989158, guid: 97cd41aae8fd2a942a5e3107400cc9b3, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4363604249307989158, guid: 97cd41aae8fd2a942a5e3107400cc9b3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4363604249307989158, guid: 97cd41aae8fd2a942a5e3107400cc9b3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4363604249307989158, guid: 97cd41aae8fd2a942a5e3107400cc9b3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4625410542022028196, guid: 97cd41aae8fd2a942a5e3107400cc9b3, type: 3}
+      propertyPath: m_Name
+      value: Core
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 97cd41aae8fd2a942a5e3107400cc9b3, type: 3}
+--- !u!114 &125191571 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1265796195152486481, guid: 97cd41aae8fd2a942a5e3107400cc9b3, type: 3}
+  m_PrefabInstance: {fileID: 125191570}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 584924e05d53051419d1041c30f8c813, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PinchOfTheft.CCTV.CameraManager
 --- !u!43 &134315486
 Mesh:
   m_ObjectHideFlags: 0
@@ -1737,6 +1902,10 @@ PrefabInstance:
       value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 567474362662108778, guid: 8465cb1cf5ccb4648a783d5ac1b930a8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 567474362662108778, guid: 8465cb1cf5ccb4648a783d5ac1b930a8, type: 3}
       propertyPath: field of view
       value: 64
       objectReference: {fileID: 0}
@@ -1803,13 +1972,50 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2738665295905921778, guid: 8465cb1cf5ccb4648a783d5ac1b930a8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 233353066}
+    - targetCorrespondingSourceObject: {fileID: 2738665295905921778, guid: 8465cb1cf5ccb4648a783d5ac1b930a8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 233353067}
   m_SourcePrefab: {fileID: 100100000, guid: 8465cb1cf5ccb4648a783d5ac1b930a8, type: 3}
 --- !u!4 &233353064 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8465cb1cf5ccb4648a783d5ac1b930a8, type: 3}
   m_PrefabInstance: {fileID: 233353063}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &233353065 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2738665295905921778, guid: 8465cb1cf5ccb4648a783d5ac1b930a8, type: 3}
+  m_PrefabInstance: {fileID: 233353063}
+  m_PrefabAsset: {fileID: 0}
+--- !u!81 &233353066
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 233353065}
+  m_Enabled: 0
+--- !u!114 &233353067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 233353065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bc218de871f414409814b7974eb647a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: PinchOfTheft.Runtime::PinchOfTheft.CCTV.CCTVCamera
+  group: 1
+  slot: 4
+  isVisibleInMenu: 0
+  maxYawAngle: 40
+  maxPitchAngle: 30
+  isAccessible: 0
 --- !u!1 &242173735
 GameObject:
   m_ObjectHideFlags: 0
@@ -2163,6 +2369,10 @@ PrefabInstance:
       value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 567474362662108778, guid: 8465cb1cf5ccb4648a783d5ac1b930a8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 567474362662108778, guid: 8465cb1cf5ccb4648a783d5ac1b930a8, type: 3}
       propertyPath: field of view
       value: 64
       objectReference: {fileID: 0}
@@ -2229,13 +2439,50 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2738665295905921778, guid: 8465cb1cf5ccb4648a783d5ac1b930a8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 270797032}
+    - targetCorrespondingSourceObject: {fileID: 2738665295905921778, guid: 8465cb1cf5ccb4648a783d5ac1b930a8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 270797033}
   m_SourcePrefab: {fileID: 100100000, guid: 8465cb1cf5ccb4648a783d5ac1b930a8, type: 3}
 --- !u!4 &270797030 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8465cb1cf5ccb4648a783d5ac1b930a8, type: 3}
   m_PrefabInstance: {fileID: 270797029}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &270797031 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2738665295905921778, guid: 8465cb1cf5ccb4648a783d5ac1b930a8, type: 3}
+  m_PrefabInstance: {fileID: 270797029}
+  m_PrefabAsset: {fileID: 0}
+--- !u!81 &270797032
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 270797031}
+  m_Enabled: 0
+--- !u!114 &270797033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 270797031}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bc218de871f414409814b7974eb647a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: PinchOfTheft.Runtime::PinchOfTheft.CCTV.CCTVCamera
+  group: 1
+  slot: 2
+  isVisibleInMenu: 0
+  maxYawAngle: 180
+  maxPitchAngle: 30
+  isAccessible: 0
 --- !u!1001 &313457403
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2305,6 +2552,10 @@ PrefabInstance:
       value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 567474362662108778, guid: 8465cb1cf5ccb4648a783d5ac1b930a8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 567474362662108778, guid: 8465cb1cf5ccb4648a783d5ac1b930a8, type: 3}
       propertyPath: field of view
       value: 64
       objectReference: {fileID: 0}
@@ -2371,13 +2622,50 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2738665295905921778, guid: 8465cb1cf5ccb4648a783d5ac1b930a8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 313457407}
+    - targetCorrespondingSourceObject: {fileID: 2738665295905921778, guid: 8465cb1cf5ccb4648a783d5ac1b930a8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 313457406}
   m_SourcePrefab: {fileID: 100100000, guid: 8465cb1cf5ccb4648a783d5ac1b930a8, type: 3}
 --- !u!4 &313457404 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8465cb1cf5ccb4648a783d5ac1b930a8, type: 3}
   m_PrefabInstance: {fileID: 313457403}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &313457405 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2738665295905921778, guid: 8465cb1cf5ccb4648a783d5ac1b930a8, type: 3}
+  m_PrefabInstance: {fileID: 313457403}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &313457406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 313457405}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bc218de871f414409814b7974eb647a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: PinchOfTheft.Runtime::PinchOfTheft.CCTV.CCTVCamera
+  group: 3
+  slot: 1
+  isVisibleInMenu: 1
+  maxYawAngle: 40
+  maxPitchAngle: 30
+  isAccessible: 1
+--- !u!81 &313457407
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 313457405}
+  m_Enabled: 0
 --- !u!1 &318480172
 GameObject:
   m_ObjectHideFlags: 0
@@ -71943,6 +72231,10 @@ PrefabInstance:
       value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 567474362662108778, guid: 8465cb1cf5ccb4648a783d5ac1b930a8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 567474362662108778, guid: 8465cb1cf5ccb4648a783d5ac1b930a8, type: 3}
       propertyPath: field of view
       value: 64
       objectReference: {fileID: 0}
@@ -72009,13 +72301,50 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2738665295905921778, guid: 8465cb1cf5ccb4648a783d5ac1b930a8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 619937628}
+    - targetCorrespondingSourceObject: {fileID: 2738665295905921778, guid: 8465cb1cf5ccb4648a783d5ac1b930a8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 619937629}
   m_SourcePrefab: {fileID: 100100000, guid: 8465cb1cf5ccb4648a783d5ac1b930a8, type: 3}
 --- !u!4 &619937626 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8465cb1cf5ccb4648a783d5ac1b930a8, type: 3}
   m_PrefabInstance: {fileID: 619937625}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &619937627 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2738665295905921778, guid: 8465cb1cf5ccb4648a783d5ac1b930a8, type: 3}
+  m_PrefabInstance: {fileID: 619937625}
+  m_PrefabAsset: {fileID: 0}
+--- !u!81 &619937628
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 619937627}
+  m_Enabled: 0
+--- !u!114 &619937629
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 619937627}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bc218de871f414409814b7974eb647a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: PinchOfTheft.Runtime::PinchOfTheft.CCTV.CCTVCamera
+  group: 2
+  slot: 5
+  isVisibleInMenu: 0
+  maxYawAngle: 40
+  maxPitchAngle: 30
+  isAccessible: 0
 --- !u!1 &627189084
 GameObject:
   m_ObjectHideFlags: 0
@@ -72743,6 +73072,10 @@ PrefabInstance:
       value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 567474362662108778, guid: 8465cb1cf5ccb4648a783d5ac1b930a8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 567474362662108778, guid: 8465cb1cf5ccb4648a783d5ac1b930a8, type: 3}
       propertyPath: field of view
       value: 64
       objectReference: {fileID: 0}
@@ -72809,13 +73142,50 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2738665295905921778, guid: 8465cb1cf5ccb4648a783d5ac1b930a8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 687622329}
+    - targetCorrespondingSourceObject: {fileID: 2738665295905921778, guid: 8465cb1cf5ccb4648a783d5ac1b930a8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 687622330}
   m_SourcePrefab: {fileID: 100100000, guid: 8465cb1cf5ccb4648a783d5ac1b930a8, type: 3}
 --- !u!4 &687622327 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8465cb1cf5ccb4648a783d5ac1b930a8, type: 3}
   m_PrefabInstance: {fileID: 687622326}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &687622328 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2738665295905921778, guid: 8465cb1cf5ccb4648a783d5ac1b930a8, type: 3}
+  m_PrefabInstance: {fileID: 687622326}
+  m_PrefabAsset: {fileID: 0}
+--- !u!81 &687622329
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 687622328}
+  m_Enabled: 0
+--- !u!114 &687622330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 687622328}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bc218de871f414409814b7974eb647a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: PinchOfTheft.Runtime::PinchOfTheft.CCTV.CCTVCamera
+  group: 2
+  slot: 1
+  isVisibleInMenu: 0
+  maxYawAngle: 180
+  maxPitchAngle: 30
+  isAccessible: 0
 --- !u!43 &729446470
 Mesh:
   m_ObjectHideFlags: 0
@@ -76140,6 +76510,10 @@ PrefabInstance:
       value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 567474362662108778, guid: 8465cb1cf5ccb4648a783d5ac1b930a8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 567474362662108778, guid: 8465cb1cf5ccb4648a783d5ac1b930a8, type: 3}
       propertyPath: field of view
       value: 64
       objectReference: {fileID: 0}
@@ -76206,13 +76580,50 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2738665295905921778, guid: 8465cb1cf5ccb4648a783d5ac1b930a8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 867384736}
+    - targetCorrespondingSourceObject: {fileID: 2738665295905921778, guid: 8465cb1cf5ccb4648a783d5ac1b930a8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 867384737}
   m_SourcePrefab: {fileID: 100100000, guid: 8465cb1cf5ccb4648a783d5ac1b930a8, type: 3}
 --- !u!4 &867384734 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8465cb1cf5ccb4648a783d5ac1b930a8, type: 3}
   m_PrefabInstance: {fileID: 867384733}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &867384735 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2738665295905921778, guid: 8465cb1cf5ccb4648a783d5ac1b930a8, type: 3}
+  m_PrefabInstance: {fileID: 867384733}
+  m_PrefabAsset: {fileID: 0}
+--- !u!81 &867384736
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 867384735}
+  m_Enabled: 0
+--- !u!114 &867384737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 867384735}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bc218de871f414409814b7974eb647a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: PinchOfTheft.Runtime::PinchOfTheft.CCTV.CCTVCamera
+  group: 0
+  slot: 3
+  isVisibleInMenu: 1
+  maxYawAngle: 40
+  maxPitchAngle: 30
+  isAccessible: 1
 --- !u!1001 &888927396
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -76282,6 +76693,10 @@ PrefabInstance:
       value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 567474362662108778, guid: 8465cb1cf5ccb4648a783d5ac1b930a8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 567474362662108778, guid: 8465cb1cf5ccb4648a783d5ac1b930a8, type: 3}
       propertyPath: field of view
       value: 64
       objectReference: {fileID: 0}
@@ -76348,13 +76763,50 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2738665295905921778, guid: 8465cb1cf5ccb4648a783d5ac1b930a8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 888927399}
+    - targetCorrespondingSourceObject: {fileID: 2738665295905921778, guid: 8465cb1cf5ccb4648a783d5ac1b930a8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 888927400}
   m_SourcePrefab: {fileID: 100100000, guid: 8465cb1cf5ccb4648a783d5ac1b930a8, type: 3}
 --- !u!4 &888927397 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8465cb1cf5ccb4648a783d5ac1b930a8, type: 3}
   m_PrefabInstance: {fileID: 888927396}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &888927398 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2738665295905921778, guid: 8465cb1cf5ccb4648a783d5ac1b930a8, type: 3}
+  m_PrefabInstance: {fileID: 888927396}
+  m_PrefabAsset: {fileID: 0}
+--- !u!81 &888927399
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 888927398}
+  m_Enabled: 0
+--- !u!114 &888927400
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 888927398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bc218de871f414409814b7974eb647a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: PinchOfTheft.Runtime::PinchOfTheft.CCTV.CCTVCamera
+  group: 1
+  slot: 1
+  isVisibleInMenu: 0
+  maxYawAngle: 40
+  maxPitchAngle: 30
+  isAccessible: 0
 --- !u!1001 &894599466
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -76545,6 +76997,91 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 903446532}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1001 &915823621
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 2008471054}
+    m_Modifications:
+    - target: {fileID: 1587516216043580878, guid: ba232b3a9fac80f4688c5ef9e0ef2b6d, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.000625
+      objectReference: {fileID: 0}
+    - target: {fileID: 1587516216043580878, guid: ba232b3a9fac80f4688c5ef9e0ef2b6d, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.00021641189
+      objectReference: {fileID: 0}
+    - target: {fileID: 1587516216043580878, guid: ba232b3a9fac80f4688c5ef9e0ef2b6d, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.00017531414
+      objectReference: {fileID: 0}
+    - target: {fileID: 1587516216043580878, guid: ba232b3a9fac80f4688c5ef9e0ef2b6d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.0055646896
+      objectReference: {fileID: 0}
+    - target: {fileID: 1587516216043580878, guid: ba232b3a9fac80f4688c5ef9e0ef2b6d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.003604947
+      objectReference: {fileID: 0}
+    - target: {fileID: 1587516216043580878, guid: ba232b3a9fac80f4688c5ef9e0ef2b6d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.02969116
+      objectReference: {fileID: 0}
+    - target: {fileID: 1587516216043580878, guid: ba232b3a9fac80f4688c5ef9e0ef2b6d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.50008726
+      objectReference: {fileID: 0}
+    - target: {fileID: 1587516216043580878, guid: ba232b3a9fac80f4688c5ef9e0ef2b6d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.49991274
+      objectReference: {fileID: 0}
+    - target: {fileID: 1587516216043580878, guid: ba232b3a9fac80f4688c5ef9e0ef2b6d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.50008726
+      objectReference: {fileID: 0}
+    - target: {fileID: 1587516216043580878, guid: ba232b3a9fac80f4688c5ef9e0ef2b6d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.49991274
+      objectReference: {fileID: 0}
+    - target: {fileID: 1587516216043580878, guid: ba232b3a9fac80f4688c5ef9e0ef2b6d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1587516216043580878, guid: ba232b3a9fac80f4688c5ef9e0ef2b6d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1587516216043580878, guid: ba232b3a9fac80f4688c5ef9e0ef2b6d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3878574284959292629, guid: ba232b3a9fac80f4688c5ef9e0ef2b6d, type: 3}
+      propertyPath: m_Name
+      value: KeyPrompt
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ba232b3a9fac80f4688c5ef9e0ef2b6d, type: 3}
+--- !u!4 &915823622 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1587516216043580878, guid: ba232b3a9fac80f4688c5ef9e0ef2b6d, type: 3}
+  m_PrefabInstance: {fileID: 915823621}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &915823623 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 745604580538536613, guid: ba232b3a9fac80f4688c5ef9e0ef2b6d, type: 3}
+  m_PrefabInstance: {fileID: 915823621}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e69de0b0273e4494eba5d3a27ff19df8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PinchOfTheft.Interaction.KeyPrompt
 --- !u!1 &945085467
 GameObject:
   m_ObjectHideFlags: 0
@@ -78975,6 +79512,10 @@ PrefabInstance:
       value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 567474362662108778, guid: 8465cb1cf5ccb4648a783d5ac1b930a8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 567474362662108778, guid: 8465cb1cf5ccb4648a783d5ac1b930a8, type: 3}
       propertyPath: field of view
       value: 64
       objectReference: {fileID: 0}
@@ -79041,13 +79582,135 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2738665295905921778, guid: 8465cb1cf5ccb4648a783d5ac1b930a8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1264226479}
+    - targetCorrespondingSourceObject: {fileID: 2738665295905921778, guid: 8465cb1cf5ccb4648a783d5ac1b930a8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1264226478}
   m_SourcePrefab: {fileID: 100100000, guid: 8465cb1cf5ccb4648a783d5ac1b930a8, type: 3}
 --- !u!4 &1264226476 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8465cb1cf5ccb4648a783d5ac1b930a8, type: 3}
   m_PrefabInstance: {fileID: 1264226475}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1264226477 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2738665295905921778, guid: 8465cb1cf5ccb4648a783d5ac1b930a8, type: 3}
+  m_PrefabInstance: {fileID: 1264226475}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1264226478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1264226477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bc218de871f414409814b7974eb647a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: PinchOfTheft.Runtime::PinchOfTheft.CCTV.CCTVCamera
+  group: 2
+  slot: 4
+  isVisibleInMenu: 0
+  maxYawAngle: 40
+  maxPitchAngle: 30
+  isAccessible: 0
+--- !u!81 &1264226479
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1264226477}
+  m_Enabled: 0
+--- !u!1001 &1264299486
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1416971248}
+    m_Modifications:
+    - target: {fileID: 1587516216043580878, guid: ba232b3a9fac80f4688c5ef9e0ef2b6d, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.021739129
+      objectReference: {fileID: 0}
+    - target: {fileID: 1587516216043580878, guid: ba232b3a9fac80f4688c5ef9e0ef2b6d, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.021739129
+      objectReference: {fileID: 0}
+    - target: {fileID: 1587516216043580878, guid: ba232b3a9fac80f4688c5ef9e0ef2b6d, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.021739129
+      objectReference: {fileID: 0}
+    - target: {fileID: 1587516216043580878, guid: ba232b3a9fac80f4688c5ef9e0ef2b6d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1587516216043580878, guid: ba232b3a9fac80f4688c5ef9e0ef2b6d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.3043478
+      objectReference: {fileID: 0}
+    - target: {fileID: 1587516216043580878, guid: ba232b3a9fac80f4688c5ef9e0ef2b6d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1587516216043580878, guid: ba232b3a9fac80f4688c5ef9e0ef2b6d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1587516216043580878, guid: ba232b3a9fac80f4688c5ef9e0ef2b6d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1587516216043580878, guid: ba232b3a9fac80f4688c5ef9e0ef2b6d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1587516216043580878, guid: ba232b3a9fac80f4688c5ef9e0ef2b6d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1587516216043580878, guid: ba232b3a9fac80f4688c5ef9e0ef2b6d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1587516216043580878, guid: ba232b3a9fac80f4688c5ef9e0ef2b6d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1587516216043580878, guid: ba232b3a9fac80f4688c5ef9e0ef2b6d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3878574284959292629, guid: ba232b3a9fac80f4688c5ef9e0ef2b6d, type: 3}
+      propertyPath: m_Name
+      value: KeyPrompt
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ba232b3a9fac80f4688c5ef9e0ef2b6d, type: 3}
+--- !u!4 &1264299487 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1587516216043580878, guid: ba232b3a9fac80f4688c5ef9e0ef2b6d, type: 3}
+  m_PrefabInstance: {fileID: 1264299486}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1264299488 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 745604580538536613, guid: ba232b3a9fac80f4688c5ef9e0ef2b6d, type: 3}
+  m_PrefabInstance: {fileID: 1264299486}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e69de0b0273e4494eba5d3a27ff19df8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PinchOfTheft.Interaction.KeyPrompt
 --- !u!1 &1266215526
 GameObject:
   m_ObjectHideFlags: 0
@@ -79996,16 +80659,76 @@ PrefabInstance:
       propertyPath: m_Name
       value: Onlock cam21
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 91d61e4683edf4170bbe8b511b924c32, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 91d61e4683edf4170bbe8b511b924c32, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1264299487}
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 91d61e4683edf4170bbe8b511b924c32, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1416971251}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 91d61e4683edf4170bbe8b511b924c32, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1416971250}
   m_SourcePrefab: {fileID: 100100000, guid: 91d61e4683edf4170bbe8b511b924c32, type: 3}
 --- !u!4 &1416971248 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 91d61e4683edf4170bbe8b511b924c32, type: 3}
   m_PrefabInstance: {fileID: 1416971247}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1416971249 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 91d61e4683edf4170bbe8b511b924c32, type: 3}
+  m_PrefabInstance: {fileID: 1416971247}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1416971250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1416971249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dccd63f4092a1ee489696db45b5e5d6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: PinchOfTheft.Runtime::PinchOfTheft.Interaction.InteractableSphere
+  unlockGroup: 2
+  prompt: {fileID: 1264299488}
+  cameraManager: {fileID: 125191571}
+  onCompleted:
+    m_PersistentCalls:
+      m_Calls: []
+  holdDuration: 2
+  singleUse: 1
+  startAvailable: 1
+--- !u!65 &1416971251
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1416971249}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.13551298, y: 2.0000002, z: 1.999996}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1434618209
 GameObject:
   m_ObjectHideFlags: 0
@@ -80640,6 +81363,10 @@ PrefabInstance:
       value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 567474362662108778, guid: 8465cb1cf5ccb4648a783d5ac1b930a8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 567474362662108778, guid: 8465cb1cf5ccb4648a783d5ac1b930a8, type: 3}
       propertyPath: field of view
       value: 64
       objectReference: {fileID: 0}
@@ -80706,13 +81433,50 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2738665295905921778, guid: 8465cb1cf5ccb4648a783d5ac1b930a8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1492769877}
+    - targetCorrespondingSourceObject: {fileID: 2738665295905921778, guid: 8465cb1cf5ccb4648a783d5ac1b930a8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1492769878}
   m_SourcePrefab: {fileID: 100100000, guid: 8465cb1cf5ccb4648a783d5ac1b930a8, type: 3}
 --- !u!4 &1492769875 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8465cb1cf5ccb4648a783d5ac1b930a8, type: 3}
   m_PrefabInstance: {fileID: 1492769874}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1492769876 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2738665295905921778, guid: 8465cb1cf5ccb4648a783d5ac1b930a8, type: 3}
+  m_PrefabInstance: {fileID: 1492769874}
+  m_PrefabAsset: {fileID: 0}
+--- !u!81 &1492769877
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1492769876}
+  m_Enabled: 0
+--- !u!114 &1492769878
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1492769876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bc218de871f414409814b7974eb647a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: PinchOfTheft.Runtime::PinchOfTheft.CCTV.CCTVCamera
+  group: 2
+  slot: 2
+  isVisibleInMenu: 0
+  maxYawAngle: 40
+  maxPitchAngle: 30
+  isAccessible: 0
 --- !u!1001 &1495912678
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -80782,6 +81546,10 @@ PrefabInstance:
       value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 567474362662108778, guid: 8465cb1cf5ccb4648a783d5ac1b930a8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 567474362662108778, guid: 8465cb1cf5ccb4648a783d5ac1b930a8, type: 3}
       propertyPath: field of view
       value: 64
       objectReference: {fileID: 0}
@@ -80848,13 +81616,50 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2738665295905921778, guid: 8465cb1cf5ccb4648a783d5ac1b930a8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1495912681}
+    - targetCorrespondingSourceObject: {fileID: 2738665295905921778, guid: 8465cb1cf5ccb4648a783d5ac1b930a8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1495912682}
   m_SourcePrefab: {fileID: 100100000, guid: 8465cb1cf5ccb4648a783d5ac1b930a8, type: 3}
 --- !u!4 &1495912679 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8465cb1cf5ccb4648a783d5ac1b930a8, type: 3}
   m_PrefabInstance: {fileID: 1495912678}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1495912680 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2738665295905921778, guid: 8465cb1cf5ccb4648a783d5ac1b930a8, type: 3}
+  m_PrefabInstance: {fileID: 1495912678}
+  m_PrefabAsset: {fileID: 0}
+--- !u!81 &1495912681
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1495912680}
+  m_Enabled: 0
+--- !u!114 &1495912682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1495912680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bc218de871f414409814b7974eb647a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: PinchOfTheft.Runtime::PinchOfTheft.CCTV.CCTVCamera
+  group: 1
+  slot: 3
+  isVisibleInMenu: 0
+  maxYawAngle: 40
+  maxPitchAngle: 30
+  isAccessible: 0
 --- !u!1 &1519805289
 GameObject:
   m_ObjectHideFlags: 0
@@ -82923,6 +83728,10 @@ PrefabInstance:
       value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 567474362662108778, guid: 8465cb1cf5ccb4648a783d5ac1b930a8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 567474362662108778, guid: 8465cb1cf5ccb4648a783d5ac1b930a8, type: 3}
       propertyPath: field of view
       value: 64
       objectReference: {fileID: 0}
@@ -82989,13 +83798,50 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2738665295905921778, guid: 8465cb1cf5ccb4648a783d5ac1b930a8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1767347358}
+    - targetCorrespondingSourceObject: {fileID: 2738665295905921778, guid: 8465cb1cf5ccb4648a783d5ac1b930a8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1767347359}
   m_SourcePrefab: {fileID: 100100000, guid: 8465cb1cf5ccb4648a783d5ac1b930a8, type: 3}
 --- !u!4 &1767347356 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8465cb1cf5ccb4648a783d5ac1b930a8, type: 3}
   m_PrefabInstance: {fileID: 1767347355}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1767347357 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2738665295905921778, guid: 8465cb1cf5ccb4648a783d5ac1b930a8, type: 3}
+  m_PrefabInstance: {fileID: 1767347355}
+  m_PrefabAsset: {fileID: 0}
+--- !u!81 &1767347358
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1767347357}
+  m_Enabled: 0
+--- !u!114 &1767347359
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1767347357}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bc218de871f414409814b7974eb647a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: PinchOfTheft.Runtime::PinchOfTheft.CCTV.CCTVCamera
+  group: 0
+  slot: 2
+  isVisibleInMenu: 1
+  maxYawAngle: 40
+  maxPitchAngle: 30
+  isAccessible: 1
 --- !u!1001 &1774749482
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -97676,16 +98522,76 @@ PrefabInstance:
       propertyPath: m_Name
       value: Onlock cam11
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: eb6e7ae125b864362a69862cab34b2db, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: eb6e7ae125b864362a69862cab34b2db, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 915823622}
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: eb6e7ae125b864362a69862cab34b2db, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2008471057}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: eb6e7ae125b864362a69862cab34b2db, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2008471056}
   m_SourcePrefab: {fileID: 100100000, guid: eb6e7ae125b864362a69862cab34b2db, type: 3}
 --- !u!4 &2008471054 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: eb6e7ae125b864362a69862cab34b2db, type: 3}
   m_PrefabInstance: {fileID: 2008471053}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2008471055 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: eb6e7ae125b864362a69862cab34b2db, type: 3}
+  m_PrefabInstance: {fileID: 2008471053}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2008471056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2008471055}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dccd63f4092a1ee489696db45b5e5d6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: PinchOfTheft.Runtime::PinchOfTheft.Interaction.InteractableSphere
+  unlockGroup: 1
+  prompt: {fileID: 915823623}
+  cameraManager: {fileID: 125191571}
+  onCompleted:
+    m_PersistentCalls:
+      m_Calls: []
+  holdDuration: 2
+  singleUse: 1
+  startAvailable: 1
+--- !u!65 &2008471057
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2008471055}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.050465584, y: 0.027214732, z: 0.032287195}
+  m_Center: {x: 0.0055646896, y: 0.0035934635, z: 0.0030325502}
 --- !u!1 &2016844678
 GameObject:
   m_ObjectHideFlags: 0
@@ -98290,13 +99196,50 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2738665295905921778, guid: 8465cb1cf5ccb4648a783d5ac1b930a8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2106608590}
+    - targetCorrespondingSourceObject: {fileID: 2738665295905921778, guid: 8465cb1cf5ccb4648a783d5ac1b930a8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2106608591}
   m_SourcePrefab: {fileID: 100100000, guid: 8465cb1cf5ccb4648a783d5ac1b930a8, type: 3}
 --- !u!4 &2106608588 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8465cb1cf5ccb4648a783d5ac1b930a8, type: 3}
   m_PrefabInstance: {fileID: 2106608587}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2106608589 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2738665295905921778, guid: 8465cb1cf5ccb4648a783d5ac1b930a8, type: 3}
+  m_PrefabInstance: {fileID: 2106608587}
+  m_PrefabAsset: {fileID: 0}
+--- !u!81 &2106608590
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2106608589}
+  m_Enabled: 1
+--- !u!114 &2106608591
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2106608589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bc218de871f414409814b7974eb647a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: PinchOfTheft.Runtime::PinchOfTheft.CCTV.CCTVCamera
+  group: 0
+  slot: 1
+  isVisibleInMenu: 1
+  maxYawAngle: 40
+  maxPitchAngle: 30
+  isAccessible: 1
 --- !u!1 &2108705567
 GameObject:
   m_ObjectHideFlags: 0
@@ -98761,3 +99704,4 @@ SceneRoots:
   - {fileID: 148807866}
   - {fileID: 1627759695}
   - {fileID: 213466136}
+  - {fileID: 125191570}

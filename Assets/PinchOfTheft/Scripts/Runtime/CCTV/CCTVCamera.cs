@@ -7,8 +7,8 @@ namespace PinchOfTheft.CCTV
     public sealed class CCTVCamera : MonoBehaviour
     {
         [Header("Номер и доступность камеры")]
-        [SerializeField, Range(0, 2), Tooltip("Группа камер: 0, 1 или 2")] private int group;
-        [SerializeField, Range(1, 4)] private int slot = 1;
+        [SerializeField, Range(0, 9), Tooltip("Первая цифра номера камеры")] private int group;
+        [SerializeField, Range(1, 9)] private int slot = 1;
         [SerializeField] private bool isVisibleInMenu = true;
         [FormerlySerializedAs("maxRotationAngle")]
         [SerializeField, Range(0f, 180f)] private float maxYawAngle = 40f;
