@@ -1012,6 +1012,7 @@ GameObject:
   - component: {fileID: 136796080}
   - component: {fileID: 136796079}
   - component: {fileID: 136796078}
+  - component: {fileID: 136796081}
   m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
@@ -1111,7 +1112,8 @@ Transform:
   m_LocalPosition: {x: -1.4562998, y: 1.03, z: -6.7700005}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1261810466}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &136796078
@@ -1174,7 +1176,23 @@ Rigidbody:
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 3
+--- !u!114 &136796081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 136796073}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21cbf26dc17bf0a4ca77f41a72c22e16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: PinchOfTheft.Runtime::PinchOfTheft.Movement.PlayerCollisionGuard
+  obstacleMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  skinWidth: 0.02
 --- !u!1 &139846345
 GameObject:
   m_ObjectHideFlags: 0
@@ -1215,7 +1233,7 @@ MonoBehaviour:
   popupText: "\u0423\u0440\u043E\u043D\u0438\u0442\u044C"
   mask:
     serializedVersion: 2
-    m_Bits: 4294967035
+    m_Bits: 563
   maxDistance: 15
   arriveTolerance: 0.4
   sampleRadius: 1.5
@@ -3465,13 +3483,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 502460334}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 3.7504609, y: -1, z: 0}
-  m_LocalScale: {x: 0.08703613, y: -4.1426015, z: 0.9335169}
+  m_LocalRotation: {x: -0, y: -0, z: 0.70380175, w: 0.7103965}
+  m_LocalPosition: {x: 3.7503521, y: -1.0001465, z: 0}
+  m_LocalScale: {x: 0.087040685, y: -4.1405597, z: 0.9335169}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2112342729}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 89.466}
 --- !u!136 &502460336
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -3580,7 +3598,7 @@ Transform:
   m_GameObject: {fileID: 524723129}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7.500001, y: -2.0031168, z: 0}
+  m_LocalPosition: {x: 7.5000014, y: -2.0031176, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4697,6 +4715,7 @@ GameObject:
   - component: {fileID: 793387623}
   - component: {fileID: 793387622}
   - component: {fileID: 793387621}
+  - component: {fileID: 793387625}
   m_Layer: 0
   m_Name: door
   m_TagString: Untagged
@@ -4798,6 +4817,26 @@ Transform:
   - {fileID: 2094092692}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!114 &793387625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 793387620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 0
+  m_Area: 0
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 1
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffffi
 --- !u!1 &794835050
 GameObject:
   m_ObjectHideFlags: 0
@@ -5178,6 +5217,10 @@ GameObject:
   m_Component:
   - component: {fileID: 863213689}
   - component: {fileID: 863213688}
+  - component: {fileID: 863213693}
+  - component: {fileID: 863213692}
+  - component: {fileID: 863213691}
+  - component: {fileID: 863213690}
   m_Layer: 0
   m_Name: CCTV
   m_TagString: Untagged
@@ -5235,6 +5278,63 @@ Transform:
   - {fileID: 481452068}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &863213690
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 863213687}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0356d4e6909e7d40b02df948a0d5814, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: PinchOfTheft.Runtime::PinchOfTheft.Core.AimProbe
+  mask:
+    serializedVersion: 2
+    m_Bits: 563
+  maxDistance: 100
+--- !u!114 &863213691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 863213687}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08ecd070acb69f74f904a4720608a3f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: PinchOfTheft.Runtime::PinchOfTheft.Core.CursorController
+--- !u!114 &863213692
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 863213687}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ac5ba8122b15204b8cf2e28e746b960, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: PinchOfTheft.Runtime::PinchOfTheft.Core.InputLock
+--- !u!114 &863213693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 863213687}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8851b7e2912586742aeefe108b8d59a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: PinchOfTheft.Runtime::PinchOfTheft.Core.GameContext
+  cameraManager: {fileID: 863213688}
+  cursorController: {fileID: 863213691}
+  inputLock: {fileID: 863213692}
+  aimProbe: {fileID: 863213690}
+  hud: {fileID: 1750889221}
 --- !u!1 &877164136
 GameObject:
   m_ObjectHideFlags: 0
@@ -6804,12 +6904,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1261810462}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.4562998, y: -1.03, z: 6.7700005}
   m_LocalScale: {x: 0.4, y: 0.025, z: 0.4}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 136796077}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1311351322
 GameObject:
@@ -9179,6 +9279,7 @@ GameObject:
   - component: {fileID: 1750889219}
   - component: {fileID: 1750889218}
   - component: {fileID: 1750889216}
+  - component: {fileID: 1750889221}
   m_Layer: 0
   m_Name: Camera UI
   m_TagString: Untagged
@@ -9295,6 +9396,20 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &1750889221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1750889215}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6552b59fda7222e4b987e0e167e32f8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: PinchOfTheft.Runtime::PinchOfTheft.Core.Hud
+  crosshair: {fileID: 1544029532}
+  cameraLabel: {fileID: 730340532}
 --- !u!1 &1763819726
 GameObject:
   m_ObjectHideFlags: 0
@@ -10685,6 +10800,7 @@ GameObject:
   - component: {fileID: 1981584296}
   - component: {fileID: 1981584295}
   - component: {fileID: 1981584299}
+  - component: {fileID: 1981584300}
   m_Layer: 0
   m_Name: board
   m_TagString: Untagged
@@ -10808,6 +10924,26 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1981584300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1981584294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 0
+  m_Area: 0
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 1
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffffi
 --- !u!1 &1983571538
 GameObject:
   m_ObjectHideFlags: 0
@@ -11885,15 +12021,15 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2112342725}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 1.3836598, y: 1.5000001, z: 1.8919792}
+  m_LocalRotation: {x: -0, y: -0, z: 0.70806015, w: 0.7061522}
+  m_LocalPosition: {x: 1.3856907, y: 1.4949433, z: 1.8919792}
   m_LocalScale: {x: 0.20000002, y: 1.8720828, z: 0.2}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 502460335}
   - {fileID: 524723130}
+  - {fileID: 502460335}
   m_Father: {fileID: 2137820915}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90.155}
 --- !u!1 &2137820914
 GameObject:
   m_ObjectHideFlags: 0
@@ -11970,7 +12106,6 @@ SceneRoots:
   - {fileID: 863213689}
   - {fileID: 125862629}
   - {fileID: 439883369}
-  - {fileID: 1261810466}
   - {fileID: 415185340}
   - {fileID: 1658939798}
   - {fileID: 1567571140}
