@@ -35,6 +35,8 @@ namespace PinchOfTheft.Interaction
         {
             if (!IsOpen) return;
             IsOpen = false;
+            input = "";
+            errorUntil = 0f;
             if (panel != null) panel.SetActive(false);
             var context = PinchOfTheft.Core.GameContext.Instance;
             if (context != null)
