@@ -1128,6 +1128,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ec100fc52e100949b514bcc6b4b1d7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PinchOfTheft.Movement.PlayerMover
+  destinationClearance: 0.12
+  destinationSearchRadius: 3
+  destinationObstacleMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
 --- !u!195 &136796079
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1524,6 +1529,8 @@ MonoBehaviour:
   panelInteractable: {fileID: 1515953565}
   keypad: {fileID: 156250361}
   tvText: {fileID: 830712323}
+  separateTvActivation: 0
+  tvInteractable: {fileID: 0}
   codeLength: 4
   useFixedCode: 0
   fixedCode: 1234
@@ -12085,6 +12092,22 @@ MonoBehaviour:
   - {fileID: 2112342729}
   - {fileID: 502460335}
   - {fileID: 524723130}
+  wireRoot: {fileID: 0}
+  fuse: {fileID: 0}
+  fuseActivated: 0
+  failMode: 1
+  requirePower: 0
+  powered: 0
+  noPowerMessage: "\u041D\u0435\u0442 \u044D\u043D\u0435\u0440\u0433\u0438\u0438"
+  fuseFailMessage: "\u041F\u0440\u0435\u0434\u043E\u0445\u0440\u0430\u043D\u0438\u0442\u0435\u043B\u044C \u043D\u0435 \u0430\u043A\u0442\u0438\u0432\u0438\u0440\u043E\u0432\u0430\u043D: \u0442\u043E\u043A \u043F\u043E\u0442\u0435\u0440\u044F\u043D"
+  noPowerLabel: {fileID: 0}
+  startInteractable: {fileID: 0}
+  onFuseFailed:
+    m_PersistentCalls:
+      m_Calls: []
+  onPowered:
+    m_PersistentCalls:
+      m_Calls: []
   speed: 2
   startDelay: 0
   hideUntilStart: 0

@@ -1123,6 +1123,22 @@ MonoBehaviour:
   - {fileID: 7445514760333883455}
   - {fileID: 5158618053129922676}
   - {fileID: 2878354007799600544}
+  wireRoot: {fileID: 0}
+  fuse: {fileID: 0}
+  fuseActivated: 0
+  failMode: 1
+  requirePower: 0
+  powered: 0
+  noPowerMessage: "\u041D\u0435\u0442 \u044D\u043D\u0435\u0440\u0433\u0438\u0438"
+  fuseFailMessage: "\u041F\u0440\u0435\u0434\u043E\u0445\u0440\u0430\u043D\u0438\u0442\u0435\u043B\u044C \u043D\u0435 \u0430\u043A\u0442\u0438\u0432\u0438\u0440\u043E\u0432\u0430\u043D: \u0442\u043E\u043A \u043F\u043E\u0442\u0435\u0440\u044F\u043D"
+  noPowerLabel: {fileID: 0}
+  startInteractable: {fileID: 0}
+  onFuseFailed:
+    m_PersistentCalls:
+      m_Calls: []
+  onPowered:
+    m_PersistentCalls:
+      m_Calls: []
   speed: 2
   startDelay: 0
   hideUntilStart: 0
