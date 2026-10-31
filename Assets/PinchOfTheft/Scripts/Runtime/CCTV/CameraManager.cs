@@ -93,22 +93,23 @@ namespace PinchOfTheft.CCTV
         private void SwitchCamera(int direction)
         {
             if (menu.IsOpen || ActiveCamera == null) return;
-            int current = ActiveCamera.Slot - 1;
-            for (int step = 1; step < 4; step++)
+            CCTVCamera next = null;
+            int nearest = int.MaxValue;
+            foreach (var candidate in cameras)
             {
-                int index = current + direction * step;
-                if (index < 0 || index >= 4) return;
-                CCTVCamera candidate = FindCamera(ActiveCamera.Group, index + 1);
-                if (candidate == null || candidate == ActiveCamera) continue;
-                SelectCamera(candidate);
-                return;
+                if (candidate == null || !candidate.isAccessible || !candidate.isActiveAndEnabled || candidate.Group != ActiveCamera.Group) continue;
+                int distance = (candidate.Slot - ActiveCamera.Slot) * direction;
+                if (distance <= 0 || distance >= nearest) continue;
+                next = candidate;
+                nearest = distance;
             }
+            if (next != null) SelectCamera(next);
         }
 
         private CCTVCamera FirstAvailable()
         {
-            for (int group = 0; group < 3; group++)
-                for (int slot = 1; slot <= 4; slot++)
+            for (int group = 0; group <= 9; group++)
+                for (int slot = 1; slot <= 9; slot++)
                 {
                     CCTVCamera camera = FindCamera(group, slot);
                     if (camera != null) return camera;
@@ -124,11 +125,14 @@ namespace PinchOfTheft.CCTV
             {
                 
                 int nearestDistance = int.MaxValue;
-                for (int slot = 1; slot <= 4; slot++)
+                int lastSlot = 4;
+                foreach (var camera in cameras)
+                    if (camera != null && camera.Group == ActiveCamera.Group) lastSlot = Mathf.Max(lastSlot, camera.Slot);
+                for (int slot = 1; slot <= lastSlot; slot++)
                 {
                     CCTVCamera candidate = FindCamera(ActiveCamera.Group, slot);
                     int distance = Mathf.Abs(slot - ActiveCamera.Slot);
-                    distance = Mathf.Min(distance, 4 - distance);
+                    distance = Mathf.Min(distance, lastSlot - distance);
                     if (candidate == null || distance >= nearestDistance) continue;
                     replacement = candidate;
                     nearestDistance = distance;

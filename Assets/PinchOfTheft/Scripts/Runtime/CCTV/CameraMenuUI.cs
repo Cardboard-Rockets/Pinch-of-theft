@@ -21,6 +21,19 @@ namespace PinchOfTheft.CCTV
         public void Initialize(CameraManager cameraManager)
         {
             manager = cameraManager; panel.SetActive(false); buttonTemplate.gameObject.SetActive(false);
+            int groups = groupContainers.Length;
+            foreach (var camera in manager.Cameras) if (camera != null) groups = Mathf.Max(groups, camera.Group + 1);
+            if (groups > groupContainers.Length && groupContainers.Length > 0)
+            {
+                int oldCount = groupContainers.Length;
+                var template = groupContainers[oldCount - 1];
+                System.Array.Resize(ref groupContainers, groups);
+                for (int group = oldCount; group < groups; group++)
+                {
+                    groupContainers[group] = Instantiate(template, template.parent);
+                    groupContainers[group].name = "Group " + group + "x";
+                }
+            }
             manager.ActiveCameraChanged += Changed;
             foreach(var camera in manager.Cameras) if(camera!=null) camera.AccessibilityChanged += Refresh;
         }
@@ -38,7 +51,7 @@ namespace PinchOfTheft.CCTV
         private void RebuildButtons()
         {
             int used=0;
-            for(int group=0;group<groupContainers.Length;group++)for(int slot=1;slot<=4;slot++)foreach(var camera in manager.Cameras)
+            for(int group=0;group<groupContainers.Length;group++)for(int slot=1;slot<=9;slot++)foreach(var camera in manager.Cameras)
             {
                 if(camera==null || !camera.IsVisibleInMenu || !camera.isActiveAndEnabled || camera.Group!=group || camera.Slot!=slot)continue;
                 if(used==pool.Count)pool.Add(Instantiate(buttonTemplate,groupContainers[group]));
@@ -49,6 +62,26 @@ namespace PinchOfTheft.CCTV
                 button.onClick.RemoveAllListeners();var selected=camera;button.onClick.AddListener(()=>manager.SelectCamera(selected));button.gameObject.SetActive(true);
             }
             for(int i=used;i<pool.Count;i++)pool[i].gameObject.SetActive(false);
+            foreach (var container in groupContainers)
+            {
+                var grid = container.GetComponent<GridLayoutGroup>();
+                var layout = container.GetComponent<LayoutElement>();
+                if (grid == null || layout == null || grid.constraint != GridLayoutGroup.Constraint.FixedColumnCount) continue;
+                int count = 0;
+                foreach (var button in pool) if (button.gameObject.activeSelf && button.transform.parent == container) count++;
+                int rows = Mathf.Max(1, Mathf.CeilToInt((float)count / grid.constraintCount));
+                layout.preferredHeight = Mathf.Max(100f, rows * grid.cellSize.y + (rows - 1) * grid.spacing.y);
+            }
+            if (groupContainers.Length > 0 && groupContainers[0].parent is RectTransform content)
+            {
+                var vertical = content.GetComponent<VerticalLayoutGroup>();
+                if (vertical != null)
+                {
+                    float height = vertical.padding.vertical + vertical.spacing * (groupContainers.Length - 1);
+                    foreach (var container in groupContainers) height += LayoutUtility.GetPreferredHeight((RectTransform)container);
+                    if (height > content.rect.height) content.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, height);
+                }
+            }
         }
         private void OnDisable() { if(IsOpen)SetOpen(false); }
         private void OnDestroy()
