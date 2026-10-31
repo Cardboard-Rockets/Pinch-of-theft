@@ -11,6 +11,7 @@ namespace PinchOfTheft.CCTV
         [SerializeField] private CameraMenuUI menu;
         [SerializeField] private SphereInteractor interactor;
         [SerializeField] private BoardController board;
+        [SerializeField] private DoorController door;
         public bool InputLocked { get; set; }
         [SerializeField, Min(0f)] private float mouseSensitivity = 0.15f;
         public IReadOnlyList<CCTVCamera> Cameras => cameras;
@@ -67,7 +68,7 @@ namespace PinchOfTheft.CCTV
             if (menu.IsOpen || ActiveCamera == null) return;
 
             if (keyboard != null && keyboard.qKey.wasPressedThisFrame) SwitchCamera(-1);
-            else if (keyboard != null && keyboard.eKey.wasPressedThisFrame && (interactor == null || !interactor.HasTarget) && (board == null || !board.IsAimed)) SwitchCamera(1);
+            else if (keyboard != null && keyboard.eKey.wasPressedThisFrame && (interactor == null || !interactor.HasTarget) && (board == null || !board.IsAimed) && (door == null || !door.IsAimed)) SwitchCamera(1);
             if (Mouse.current != null)
                 ActiveCamera.Rotate(Mouse.current.delta.ReadValue() * mouseSensitivity);
         }
@@ -143,6 +144,7 @@ namespace PinchOfTheft.CCTV
         }
     }
 }
+
 
 
 
