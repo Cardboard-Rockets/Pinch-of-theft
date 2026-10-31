@@ -298,10 +298,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: PinchOfTheft.Runtime::PinchOfTheft.CCTV.CCTVCamera
   group: 2
   slot: 3
-  isVisibleInMenu: 0
+  isVisibleInMenu: 1
   maxYawAngle: 40
   maxPitchAngle: 30
-  isAccessible: 0
+  isAccessible: 1
 --- !u!43 &21749296
 Mesh:
   m_ObjectHideFlags: 0
@@ -2012,10 +2012,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: PinchOfTheft.Runtime::PinchOfTheft.CCTV.CCTVCamera
   group: 1
   slot: 4
-  isVisibleInMenu: 0
+  isVisibleInMenu: 1
   maxYawAngle: 40
   maxPitchAngle: 30
-  isAccessible: 0
+  isAccessible: 1
 --- !u!1 &242173735
 GameObject:
   m_ObjectHideFlags: 0
@@ -2402,39 +2402,39 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8128352693697127860, guid: 8465cb1cf5ccb4648a783d5ac1b930a8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.0013259948
+      value: 0.0013259947
       objectReference: {fileID: 0}
     - target: {fileID: 8128352693697127860, guid: 8465cb1cf5ccb4648a783d5ac1b930a8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.037598565
+      value: 0.03759856
       objectReference: {fileID: 0}
     - target: {fileID: 8128352693697127860, guid: 8465cb1cf5ccb4648a783d5ac1b930a8, type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.21487696
+      value: 0.1938235
       objectReference: {fileID: 0}
     - target: {fileID: 8128352693697127860, guid: 8465cb1cf5ccb4648a783d5ac1b930a8, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.32230178
+      value: 0.24528793
       objectReference: {fileID: 0}
     - target: {fileID: 8128352693697127860, guid: 8465cb1cf5ccb4648a783d5ac1b930a8, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.76546085
+      value: 0.807539
       objectReference: {fileID: 0}
     - target: {fileID: 8128352693697127860, guid: 8465cb1cf5ccb4648a783d5ac1b930a8, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.5138279
+      value: 0.5001471
       objectReference: {fileID: 0}
     - target: {fileID: 8128352693697127860, guid: 8465cb1cf5ccb4648a783d5ac1b930a8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: -40.4
+      value: -45.454
       objectReference: {fileID: 0}
     - target: {fileID: 8128352693697127860, guid: 8465cb1cf5ccb4648a783d5ac1b930a8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 240.1
+      value: 127.247
       objectReference: {fileID: 0}
     - target: {fileID: 8128352693697127860, guid: 8465cb1cf5ccb4648a783d5ac1b930a8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: -69.7
+      value: 57.26
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2479,10 +2479,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: PinchOfTheft.Runtime::PinchOfTheft.CCTV.CCTVCamera
   group: 1
   slot: 2
-  isVisibleInMenu: 0
-  maxYawAngle: 180
+  isVisibleInMenu: 1
+  maxYawAngle: 45
   maxPitchAngle: 30
-  isAccessible: 0
+  isAccessible: 1
 --- !u!1001 &313457403
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -72264,39 +72264,39 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8128352693697127860, guid: 8465cb1cf5ccb4648a783d5ac1b930a8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.0013259948
+      value: 0.0013258874
       objectReference: {fileID: 0}
     - target: {fileID: 8128352693697127860, guid: 8465cb1cf5ccb4648a783d5ac1b930a8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.037598565
+      value: 0.03759861
       objectReference: {fileID: 0}
     - target: {fileID: 8128352693697127860, guid: 8465cb1cf5ccb4648a783d5ac1b930a8, type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.21487696
+      value: 0.1723827
       objectReference: {fileID: 0}
     - target: {fileID: 8128352693697127860, guid: 8465cb1cf5ccb4648a783d5ac1b930a8, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.32230178
+      value: 0.18273275
       objectReference: {fileID: 0}
     - target: {fileID: 8128352693697127860, guid: 8465cb1cf5ccb4648a783d5ac1b930a8, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.76546085
+      value: 0.8749101
       objectReference: {fileID: 0}
     - target: {fileID: 8128352693697127860, guid: 8465cb1cf5ccb4648a783d5ac1b930a8, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.5138279
+      value: 0.4140355
       objectReference: {fileID: 0}
     - target: {fileID: 8128352693697127860, guid: 8465cb1cf5ccb4648a783d5ac1b930a8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: -40.4
+      value: -41.413
       objectReference: {fileID: 0}
     - target: {fileID: 8128352693697127860, guid: 8465cb1cf5ccb4648a783d5ac1b930a8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 240.1
+      value: 142.845
       objectReference: {fileID: 0}
     - target: {fileID: 8128352693697127860, guid: 8465cb1cf5ccb4648a783d5ac1b930a8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: -69.7
+      value: 38.075
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -72341,10 +72341,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: PinchOfTheft.Runtime::PinchOfTheft.CCTV.CCTVCamera
   group: 2
   slot: 5
-  isVisibleInMenu: 0
+  isVisibleInMenu: 1
   maxYawAngle: 40
   maxPitchAngle: 30
-  isAccessible: 0
+  isAccessible: 1
 --- !u!1 &627189084
 GameObject:
   m_ObjectHideFlags: 0
@@ -73105,39 +73105,39 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8128352693697127860, guid: 8465cb1cf5ccb4648a783d5ac1b930a8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.0013259948
+      value: 0.0013260662
       objectReference: {fileID: 0}
     - target: {fileID: 8128352693697127860, guid: 8465cb1cf5ccb4648a783d5ac1b930a8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.037598565
+      value: 0.03759856
       objectReference: {fileID: 0}
     - target: {fileID: 8128352693697127860, guid: 8465cb1cf5ccb4648a783d5ac1b930a8, type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.21487696
+      value: 0.011915105
       objectReference: {fileID: 0}
     - target: {fileID: 8128352693697127860, guid: 8465cb1cf5ccb4648a783d5ac1b930a8, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.32230178
+      value: 0.06979226
       objectReference: {fileID: 0}
     - target: {fileID: 8128352693697127860, guid: 8465cb1cf5ccb4648a783d5ac1b930a8, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.76546085
+      value: 0.8014932
       objectReference: {fileID: 0}
     - target: {fileID: 8128352693697127860, guid: 8465cb1cf5ccb4648a783d5ac1b930a8, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.5138279
+      value: 0.5937977
       objectReference: {fileID: 0}
     - target: {fileID: 8128352693697127860, guid: 8465cb1cf5ccb4648a783d5ac1b930a8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: -40.4
+      value: -71.839
       objectReference: {fileID: 0}
     - target: {fileID: 8128352693697127860, guid: 8465cb1cf5ccb4648a783d5ac1b930a8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 240.1
+      value: 160.901
       objectReference: {fileID: 0}
     - target: {fileID: 8128352693697127860, guid: 8465cb1cf5ccb4648a783d5ac1b930a8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: -69.7
+      value: 23.85
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -73182,10 +73182,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: PinchOfTheft.Runtime::PinchOfTheft.CCTV.CCTVCamera
   group: 2
   slot: 1
-  isVisibleInMenu: 0
+  isVisibleInMenu: 1
   maxYawAngle: 180
   maxPitchAngle: 30
-  isAccessible: 0
+  isAccessible: 1
 --- !u!43 &729446470
 Mesh:
   m_ObjectHideFlags: 0
@@ -76726,39 +76726,39 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8128352693697127860, guid: 8465cb1cf5ccb4648a783d5ac1b930a8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.0013259948
+      value: 0.0013259947
       objectReference: {fileID: 0}
     - target: {fileID: 8128352693697127860, guid: 8465cb1cf5ccb4648a783d5ac1b930a8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.037598565
+      value: 0.03759854
       objectReference: {fileID: 0}
     - target: {fileID: 8128352693697127860, guid: 8465cb1cf5ccb4648a783d5ac1b930a8, type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.21487696
+      value: -0.19188915
       objectReference: {fileID: 0}
     - target: {fileID: 8128352693697127860, guid: 8465cb1cf5ccb4648a783d5ac1b930a8, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.32230178
+      value: -0.32144198
       objectReference: {fileID: 0}
     - target: {fileID: 8128352693697127860, guid: 8465cb1cf5ccb4648a783d5ac1b930a8, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.76546085
+      value: 0.84165657
       objectReference: {fileID: 0}
     - target: {fileID: 8128352693697127860, guid: 8465cb1cf5ccb4648a783d5ac1b930a8, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.5138279
+      value: 0.3891887
       objectReference: {fileID: 0}
     - target: {fileID: 8128352693697127860, guid: 8465cb1cf5ccb4648a783d5ac1b930a8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: -40.4
+      value: -32.125
       objectReference: {fileID: 0}
     - target: {fileID: 8128352693697127860, guid: 8465cb1cf5ccb4648a783d5ac1b930a8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 240.1
+      value: 222.597
       objectReference: {fileID: 0}
     - target: {fileID: 8128352693697127860, guid: 8465cb1cf5ccb4648a783d5ac1b930a8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: -69.7
+      value: -54.614
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -76803,10 +76803,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: PinchOfTheft.Runtime::PinchOfTheft.CCTV.CCTVCamera
   group: 1
   slot: 1
-  isVisibleInMenu: 0
+  isVisibleInMenu: 1
   maxYawAngle: 40
   maxPitchAngle: 30
-  isAccessible: 0
+  isAccessible: 1
 --- !u!1001 &894599466
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -79614,10 +79614,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: PinchOfTheft.Runtime::PinchOfTheft.CCTV.CCTVCamera
   group: 2
   slot: 4
-  isVisibleInMenu: 0
+  isVisibleInMenu: 1
   maxYawAngle: 40
   maxPitchAngle: 30
-  isAccessible: 0
+  isAccessible: 1
 --- !u!81 &1264226479
 AudioListener:
   m_ObjectHideFlags: 0
@@ -79833,47 +79833,47 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: eb6e7ae125b864362a69862cab34b2db, type: 3}
       propertyPath: m_LocalScale.x
-      value: 2
+      value: 3.275038
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: eb6e7ae125b864362a69862cab34b2db, type: 3}
       propertyPath: m_LocalScale.y
-      value: 5.776025
+      value: 9.458351
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: eb6e7ae125b864362a69862cab34b2db, type: 3}
       propertyPath: m_LocalScale.z
-      value: 7.130058
+      value: 11.675607
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: eb6e7ae125b864362a69862cab34b2db, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.99165
+      value: -4.9765
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: eb6e7ae125b864362a69862cab34b2db, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.575
+      value: 1.4255
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: eb6e7ae125b864362a69862cab34b2db, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.4975109
+      value: -0.61044
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: eb6e7ae125b864362a69862cab34b2db, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0
+      value: -0.019881299
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: eb6e7ae125b864362a69862cab34b2db, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0.01988824
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: eb6e7ae125b864362a69862cab34b2db, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.7072302
+      value: 0.7069505
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: eb6e7ae125b864362a69862cab34b2db, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.7069834
+      value: 0.70670384
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: eb6e7ae125b864362a69862cab34b2db, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: -89.98
+      value: -90
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: eb6e7ae125b864362a69862cab34b2db, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -79881,12 +79881,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: eb6e7ae125b864362a69862cab34b2db, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
+      value: 3.2230072
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: eb6e7ae125b864362a69862cab34b2db, type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: eb6e7ae125b864362a69862cab34b2db, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 0910c675ae8a8504aaeddcd912921359, type: 2}
     - target: {fileID: 919132149155446097, guid: eb6e7ae125b864362a69862cab34b2db, type: 3}
       propertyPath: m_Name
       value: router
@@ -81473,10 +81477,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: PinchOfTheft.Runtime::PinchOfTheft.CCTV.CCTVCamera
   group: 2
   slot: 2
-  isVisibleInMenu: 0
+  isVisibleInMenu: 1
   maxYawAngle: 40
   maxPitchAngle: 30
-  isAccessible: 0
+  isAccessible: 1
 --- !u!1001 &1495912678
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -81656,10 +81660,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: PinchOfTheft.Runtime::PinchOfTheft.CCTV.CCTVCamera
   group: 1
   slot: 3
-  isVisibleInMenu: 0
+  isVisibleInMenu: 1
   maxYawAngle: 40
   maxPitchAngle: 30
-  isAccessible: 0
+  isAccessible: 1
 --- !u!1 &1519805289
 GameObject:
   m_ObjectHideFlags: 0
