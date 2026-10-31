@@ -121,8 +121,8 @@ namespace PinchOfTheft.Editor
                     obj.transform.position = bounds.center + Vector3.up * (bounds.extents.y + 0.3f);
                     obj.transform.rotation = Quaternion.identity;
                     var parentScale = target.lossyScale;
-                    obj.transform.localScale = new Vector3(0.005f / Mathf.Abs(parentScale.x), 0.005f / Mathf.Abs(parentScale.y), 0.005f / Mathf.Abs(parentScale.z));
-                    prompt = obj.GetComponent<KeyPrompt>(); added.Add("KeyPrompt prefab");
+                    obj.transform.localScale = new Vector3(1f / parentScale.x, 1f / parentScale.y, 1f / parentScale.z);
+                    prompt = obj.GetComponentInChildren<KeyPrompt>(true); added.Add("KeyPrompt prefab");
                 }
                 Set(interactable, "unlockGroup", group); Set(interactable, "singleUse", true); Set(interactable, "startAvailable", true); Set(interactable, "holdDuration", 2f);
                 Set(interactable, "cameraManager", manager); Set(interactable, "prompt", prompt);

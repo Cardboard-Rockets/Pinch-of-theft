@@ -58,7 +58,7 @@ namespace PinchOfTheft.Editor
                 else if(stage==5)
                 {
                     Require(manager.ActiveCamera.CameraName=="01","E switched in menu");context.Menu.SetOpen(false);Press();
-                    var targets=Object.FindObjectsByType<InteractableSphere>();first=targets.Single(x=>x.name.Equals("Onlock cam11",StringComparison.OrdinalIgnoreCase));second=targets.Single(x=>x.name.Equals("Onlock cam21",StringComparison.OrdinalIgnoreCase));
+                    var targets=Object.FindObjectsByType<InteractableSphere>();first=targets.Single(x=>x.name.Replace(" ","").Replace("Onlock","Unlock").Equals("Unlockcam11",StringComparison.OrdinalIgnoreCase));second=targets.Single(x=>x.name.Replace(" ","").Replace("Onlock","Unlock").Equals("Unlockcam21",StringComparison.OrdinalIgnoreCase));
                     first.Complete();first.Complete();Require(!first.IsAvailable && manager.Cameras.Where(c=>c.Group==1).All(c=>c.isAccessible && c.IsVisibleInMenu),"First unlock");
                     manager.SelectCamera(manager.Cameras.Single(c=>c.CameraName=="13"));stage=6;
                 }
