@@ -35,6 +35,13 @@ namespace PinchOfTheft.Interaction
             if (!value) prompt.Hide();
             else { prompt.gameObject.SetActive(true); prompt.SetProgress(0); prompt.SetHighlighted(false); }
         }
+        // Отменяет завершение взаимодействия при выходе из мини-игры без победы и разрешает повторную попытку.
+        public void CancelCompletion()
+        {
+            HasCompleted = false;
+            SetAvailable(true);
+        }
+
         public void SetVisual(float progress, bool highlighted)
         {
             if (prompt == null || !IsAvailable) return;
