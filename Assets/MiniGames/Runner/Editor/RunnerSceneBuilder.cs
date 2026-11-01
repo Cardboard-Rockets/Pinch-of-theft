@@ -1,13 +1,13 @@
 using System;
 using System.IO;
 using System.Linq;
-using TMPro;
+using UnityEngine.UI;
 using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.TextCore.LowLevel;
-using UnityEngine.UI;
+
 
 namespace Runner
 {
@@ -15,7 +15,7 @@ namespace Runner
     {
         private const string Root = "Assets/MiniGames/Runner";
         private const string ScenePath = Root + "/Scenes/Runner.unity";
-        private const string FontPath = Root + "/UI/Fonts/RunnerFont.asset";
+
         private const float CameraSize = 5f;
         private const float FloorY = -4.1f;
         private const float FloorThickness = 1f;
@@ -23,9 +23,9 @@ namespace Runner
         private const float LowHeight = 1.3f;
         private const float TallHeight = 2.3f;
         private const float WallWidth = 0.8f;
-        private const int AtlasSize = 1024;
-        private const int FontPointSize = 64;
-        private const int FontPadding = 7;
+
+
+
         private const float PixelsPerUnit = 100f;
 
         // Создаёт сцену и префабы только внутри папки Runner через меню редактора.
@@ -42,10 +42,8 @@ namespace Runner
             Sprite lowSprite = ImportSprite("firewall1.gif");
             Sprite tallSprite = ImportSprite("firewallTall (1).gif");
             Material spriteMaterial = CreateSpriteMaterial();
-            CreateSettings(null);
-            TMP_Settings.LoadDefaultSettings();
-            TMP_FontAsset font = CreateFont();
-            CreateSettings(font);
+
+            Font font = CreateFont();
             Scene previous = SceneManager.GetActiveScene();
             Scene scene = EditorSceneManager.NewScene(NewSceneSetup.EmptyScene, NewSceneMode.Additive);
             SceneManager.SetActiveScene(scene);
@@ -98,33 +96,10 @@ namespace Runner
             return material;
         }
 
-        // Создаёт локальный статический атлас TMP с латиницей и кириллицей из выбранного шрифта.
-        private static TMP_FontAsset CreateFont()
+        // Возвращает встроенный шрифт, используемый интерфейсом основной игры.
+        private static Font CreateFont()
         {
-            TMP_FontAsset existing = AssetDatabase.LoadAssetAtPath<TMP_FontAsset>(FontPath);
-            if (existing != null) return existing;
-            Font source = AssetDatabase.LoadAssetAtPath<Font>(Root + "/UI/Fonts/Arial.ttf");
-            TMP_FontAsset font = TMP_FontAsset.CreateFontAsset(source, FontPointSize, FontPadding,
-                GlyphRenderMode.SDFAA, AtlasSize, AtlasSize, AtlasPopulationMode.Dynamic, false);
-            font.name = "RunnerFont";
-            string characters = string.Concat(Enumerable.Range(32, 95).Select(ToCharacter))
-                + string.Concat(Enumerable.Range(0x410, 64).Select(ToCharacter)) + "Ёё—";
-            if (!font.TryAddCharacters(characters, out string missing))
-                throw new InvalidOperationException("В шрифте отсутствуют символы: " + missing);
-            font.material.shader = AssetDatabase.LoadAssetAtPath<Shader>(Root + "/UI/Shaders/TMP_SDF-Mobile.shader");
-            font.material.name = "RunnerFont Material";
-            font.atlasPopulationMode = AtlasPopulationMode.Static;
-            font.fallbackFontAssetTable = new System.Collections.Generic.List<TMP_FontAsset>();
-            AssetDatabase.CreateAsset(font, FontPath);
-            AssetDatabase.AddObjectToAsset(font.material, font);
-            foreach (Texture2D atlas in font.atlasTextures)
-            {
-                atlas.name = "RunnerFont Atlas";
-                AssetDatabase.AddObjectToAsset(atlas, font);
-            }
-            EditorUtility.SetDirty(font);
-            AssetDatabase.SaveAssets();
-            return font;
+            return Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
         }
 
         // Преобразует код символа в строку для подготовки набора глифов.
@@ -133,25 +108,11 @@ namespace Runner
             return char.ConvertFromUtf32(code);
         }
 
-        // Создаёт локальные настройки TMP без внешних шрифтов и запасных ресурсов.
-        private static void CreateSettings(TMP_FontAsset font)
-        {
-            string path = Root + "/UI/Resources/TMP Settings.asset";
-            TMP_Settings settings = AssetDatabase.LoadAssetAtPath<TMP_Settings>(path);
-            bool isNew = settings == null;
-            if (isNew) settings = ScriptableObject.CreateInstance<TMP_Settings>();
-            SerializedObject serialized = new SerializedObject(settings);
-            serialized.FindProperty("m_defaultFontAsset").objectReferenceValue = font;
-            serialized.FindProperty("m_fallbackFontAssets").arraySize = 0;
-            serialized.ApplyModifiedPropertiesWithoutUndo();
-            if (isNew) AssetDatabase.CreateAsset(settings, path);
-            else EditorUtility.SetDirty(settings);
-            AssetDatabase.SaveAssets();
-        }
+
 
         // Собирает ортографическую сцену с игроком, фоном, полом, интерфейсом и спавнером.
         private static void CreateScene(Sprite playerSprite, Sprite backgroundSprite, Sprite lowSprite,
-            Sprite tallSprite, Material material, TMP_FontAsset font)
+            Sprite tallSprite, Material material, Font font)
         {
             Camera camera = new GameObject("Runner Camera").AddComponent<Camera>();
             camera.orthographic = true;
@@ -238,8 +199,8 @@ namespace Runner
                 System.Globalization.CultureInfo.InvariantCulture)).ToArray();
         }
 
-        // Собирает интерфейс uGUI с локальным шрифтом TMP и верхним центральным счётом.
-        private static ScoreView CreateUI(TMP_FontAsset font, RunnerGameManager game)
+        // Собирает интерфейс uGUI с общим шрифтом и верхним центральным счётом.
+        private static ScoreView CreateUI(Font font, RunnerGameManager game)
         {
             GameObject root = new GameObject("Runner UI", typeof(RectTransform), typeof(Canvas), typeof(CanvasScaler));
             root.GetComponent<Canvas>().renderMode = RenderMode.ScreenSpaceOverlay;
@@ -247,10 +208,10 @@ namespace Runner
             scaler.uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
             scaler.referenceResolution = new Vector2(1920f, 1080f);
             scaler.matchWidthOrHeight = 0.5f;
-            TMP_Text score = CreateText(root.transform, "Score", font, new Vector2(0.5f, 1f),
+            Text score = CreateText(root.transform, "Score", font, new Vector2(0.5f, 1f),
                 new Vector2(0f, -36f), new Vector2(600f, 80f), 48f);
-            score.text = "0 / 512 Кб";
-            TMP_Text result = CreateText(root.transform, "Result", font, new Vector2(0.5f, 0.5f),
+            score.text = "0 / 512 KB";
+            Text result = CreateText(root.transform, "Result", font, new Vector2(0.5f, 0.5f),
                 Vector2.zero, new Vector2(1400f, 240f), 48f);
             result.gameObject.SetActive(false);
             ScoreView view = root.AddComponent<ScoreView>();
@@ -259,16 +220,15 @@ namespace Runner
         }
 
         // Создаёт текстовое поле с явным шрифтом, материалом и якорями.
-        private static TMP_Text CreateText(Transform parent, string name, TMP_FontAsset font, Vector2 anchor,
+        private static Text CreateText(Transform parent, string name, Font font, Vector2 anchor,
             Vector2 position, Vector2 size, float fontSize)
         {
             GameObject item = new GameObject(name, typeof(RectTransform));
             item.transform.SetParent(parent, false);
-            TextMeshProUGUI text = item.AddComponent<TextMeshProUGUI>();
+            Text text = item.AddComponent<Text>();
             text.font = font;
-            text.fontSharedMaterial = font.material;
-            text.fontSize = fontSize;
-            text.alignment = TextAlignmentOptions.Center;
+            text.fontSize = Mathf.RoundToInt(fontSize);
+            text.alignment = TextAnchor.MiddleCenter;
             text.color = new Color32(225, 248, 210, 255);
             text.raycastTarget = false;
             RectTransform rect = text.rectTransform;

@@ -40,7 +40,7 @@ MonoBehaviour:
   openLock: {fileID: 21300000, guid: 16d78a8dfdb663c448955b4458c58deb, type: 3}
   key: {fileID: 21300000, guid: 92f1ced98b89aeb4b86375b741c676a7, type: 3}
   spriteMaterial: {fileID: 2100000, guid: b5a69754c36c482d8d01731c7031ff02, type: 2}
-  font: {fileID: 12800000, guid: 4617079f25ca4a6493291be033488e83, type: 3}
+  font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!114 &1003
 MonoBehaviour:
   m_ObjectHideFlags: 0

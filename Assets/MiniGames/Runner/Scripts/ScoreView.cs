@@ -1,4 +1,4 @@
-using TMPro;
+using UnityEngine.UI;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -6,12 +6,12 @@ namespace Runner
 {
     public sealed class ScoreView : MonoBehaviour
     {
-        [SerializeField] private TMP_Text score;
-        [SerializeField] private TMP_Text result;
+        [SerializeField] private Text score;
+        [SerializeField] private Text result;
         [SerializeField] private RunnerGameManager game;
 
         // Назначает текстовые поля и менеджер текущей сцены.
-        public void Configure(TMP_Text scoreText, TMP_Text resultText, RunnerGameManager manager)
+        public void Configure(Text scoreText, Text resultText, RunnerGameManager manager)
         {
             score = scoreText;
             result = resultText;
@@ -21,7 +21,7 @@ namespace Runner
         // Обновляет счёт сверху по центру экрана.
         public void ShowDistance(float distance, float target)
         {
-            score.text = $"{Mathf.FloorToInt(distance)} / {target:0} Кб";
+            score.text = $"{Mathf.FloorToInt(distance)} / {target:0} KB";
         }
 
         // Показывает сообщение о поражении или завершении забега.
@@ -29,7 +29,7 @@ namespace Runner
         {
             result.gameObject.SetActive(true);
             result.text = state == RunnerGameManager.GameState.Lost
-                ? "Поражение\nПробел или клик — начать заново" : "";
+                ? "Game over\nSpace or click to retry" : "";
         }
 
         // Скрывает сообщение при начале нового забега.
@@ -42,7 +42,7 @@ namespace Runner
         public void ShowConfigurationError()
         {
             result.gameObject.SetActive(true);
-            result.text = "Включите Active Input Handling: Input System Package (New)\nи перезапустите редактор";
+            result.text = "Enable Active Input Handling: Input System Package (New)\nand restart the editor";
         }
 
         // Принимает команду перезапуска только после поражения.

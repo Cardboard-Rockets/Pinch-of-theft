@@ -59,7 +59,7 @@ namespace SpaceBoat
             Restart();
 #if !ENABLE_INPUT_SYSTEM
             State = GameState.Lost;
-            message.text = "Включите Active Input Handling: Input System Package (New)";
+            message.text = "Enable Active Input Handling: Input System Package (New)";
 #endif
         }
 
@@ -143,7 +143,7 @@ namespace SpaceBoat
             if (State != GameState.Playing) return;
             State = GameState.Lost;
             restartArmed = false;
-            message.text = "Поражение\nПробел или новый клик — заново";
+            message.text = "Game over\nSpace or click to retry";
         }
 
         // Обновляет количество уничтоженных противников.

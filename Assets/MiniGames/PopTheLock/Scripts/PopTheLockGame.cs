@@ -36,7 +36,7 @@ namespace PopTheLock
         {
             Restart();
 #if !ENABLE_INPUT_SYSTEM
-            view.ShowMessage("Включите Active Input Handling: Input System Package (New)");
+            view.ShowMessage("Enable Active Input Handling: Input System Package (New)");
             enabled = false;
 #endif
         }

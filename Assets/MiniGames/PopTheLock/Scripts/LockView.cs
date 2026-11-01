@@ -54,7 +54,7 @@ namespace PopTheLock
                 locks[index].transform.localPosition = Circle(round.LockAngle(index), lockRadius);
             }
             key = CreateSprite("Orbiting Key", keySprite, keyWidth, 3);
-            hint.text = "ЛКМ или пробел — открыть замок напротив ключа";
+            hint.text = "Click or press Space to unlock";
             Render(round);
         }
 
@@ -68,7 +68,7 @@ namespace PopTheLock
             key.transform.localRotation = Quaternion.Euler(0f, 0f, round.KeyAngle + 180f);
             score.text = round.OpenedCount + " / " + round.Count;
             lives.Render(round.Lives);
-            if (round.Lost) hint.text = "Жизни закончились. ЛКМ или пробел — заново";
+            if (round.Lost) hint.text = "No lives left. Click or press Space to retry";
             if (round.Won) hint.text = "";
         }
 

@@ -169,7 +169,7 @@ MonoBehaviour:
   enemy: {fileID: 21300000, guid: dd478cb0ad2110141ae05addacb49597, type: 3}
   laser: {fileID: 21300000, guid: a63aeedad70cca74099fbfaeb4c605d8, type: 3}
   spriteMaterial: {fileID: 2100000, guid: 1ead57b8d6004264abc3539105cf7b42, type: 2}
-  font: {fileID: 12800000, guid: 92fade6e180f41ad8191b52e52e743ad, type: 3}
+  font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!114 &1003
 MonoBehaviour:
   m_ObjectHideFlags: 0

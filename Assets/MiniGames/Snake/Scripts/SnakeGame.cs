@@ -12,6 +12,7 @@ namespace Snake
         private SnakeBoard board;
         private float elapsed;
         private bool turnQueued;
+        public event System.Action<SnakeState> Finished;
 
         // Подключает созданный интерфейс и представление игрового поля.
         public void Configure(SnakeView snakeView)
@@ -25,7 +26,7 @@ namespace Snake
             board = new SnakeBoard(columns, rows, System.Environment.TickCount);
             view.Render(board);
 #if !ENABLE_INPUT_SYSTEM
-            view.ShowMessage("Включите Active Input Handling: Input System Package (New)");
+            view.ShowMessage("Enable Active Input Handling: Input System Package (New)");
             enabled = false;
 #endif
         }
@@ -53,6 +54,7 @@ namespace Snake
                 board.Step();
                 turnQueued = false;
                 view.Render(board);
+                if (board.State != SnakeState.Playing) Finished?.Invoke(board.State);
             }
 #endif
         }

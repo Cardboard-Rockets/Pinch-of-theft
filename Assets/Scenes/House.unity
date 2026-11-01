@@ -131617,6 +131617,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: eb6e7ae125b864362a69862cab34b2db, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2008471056}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: eb6e7ae125b864362a69862cab34b2db, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2008471058}
   m_SourcePrefab: {fileID: 100100000, guid: eb6e7ae125b864362a69862cab34b2db, type: 3}
 --- !u!4 &2008471054 stripped
 Transform:
@@ -131640,12 +131643,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dccd63f4092a1ee489696db45b5e5d6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: PinchOfTheft.Runtime::PinchOfTheft.Interaction.InteractableSphere
-  unlockGroup: 1
+  unlockGroup: -1
   prompt: {fileID: 915823623}
   cameraManager: {fileID: 125191571}
   onCompleted:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2008471058}
+        m_TargetAssemblyTypeName: MiniGames.Integration.SnakeCameraUnlock, MiniGames.Integration
+        m_MethodName: BeginSnake
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument:
+          m_BoolArgument: 0
+        m_CallState: 2
   holdDuration: 2
   singleUse: 1
   startAvailable: 1
@@ -133885,3 +133900,18 @@ SceneRoots:
   - {fileID: 1975870209}
   - {fileID: 1599918334}
   - {fileID: 1732511566}
+--- !u!114 &2008471058
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2008471055}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a698b3844b834a77bfec8cc993c42efe, type: 3}
+  m_Name:
+  m_EditorClassIdentifier: MiniGames.Integration::MiniGames.Integration.SnakeCameraUnlock
+  interaction: {fileID: 2008471056}
+  unlockGroup: 1
+  snakeScene: Assets/MiniGames/Snake/Scenes/Snake.unity

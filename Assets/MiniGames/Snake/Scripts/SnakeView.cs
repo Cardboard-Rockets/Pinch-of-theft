@@ -72,9 +72,9 @@ namespace Snake
                 slots[index].sprite = index < board.Progress ? symbols[index] : cover;
                 Fit(slots[index], 2.2f);
             }
-            status.text = $"{board.Progress} / 3\nWASD — движение";
-            if (board.LastMoveWasWrong) status.text += "\nПароль сброшен";
-            ShowMessage(board.State == SnakeState.Lost ? "Поражение\nПробел или клик — заново"
+            status.text = $"{board.Progress} / 3\nWASD to move";
+            if (board.LastMoveWasWrong) status.text += "\nPassword reset";
+            ShowMessage(board.State == SnakeState.Lost ? "Game over\nSpace or click to retry"
                 : "");
             if (board.State == SnakeState.Won) status.text = "3 / 3";
         }

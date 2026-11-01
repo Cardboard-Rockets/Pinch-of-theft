@@ -1,11 +1,11 @@
 using System;
 using System.Reflection;
-using TMPro;
+using UnityEngine.UI;
 using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
+
 
 namespace Runner
 {
@@ -92,9 +92,9 @@ namespace Runner
                 Require(canvas.renderMode == RenderMode.ScreenSpaceOverlay, "Неверный режим Canvas.");
                 Require(canvas.GetComponent<CanvasScaler>().uiScaleMode == CanvasScaler.ScaleMode.ScaleWithScreenSize,
                     "Неверный режим CanvasScaler.");
-                Require(new SerializedObject(game).FindProperty("targetDistance").floatValue == 512f, "Цель должна быть 512 Кб.");
-                TMP_Text score = canvas.transform.Find("Score").GetComponent<TMP_Text>();
-                Require(score.text == "0 / 512 Кб", "Неверный начальный счёт.");
+                Require(new SerializedObject(game).FindProperty("targetDistance").floatValue == 512f, "Цель должна быть 512 KB.");
+                Text score = canvas.transform.Find("Score").GetComponent<Text>();
+                Require(score.text == "0 / 512 KB", "Неверный начальный счёт.");
                 Require(score.rectTransform.anchorMin == new Vector2(0.5f, 1f), "Неверный якорь счёта.");
                 Call(player, "Awake");
                 game.Restart();
@@ -114,7 +114,7 @@ namespace Runner
                     new object[] { RunnerGameManager.GameState.Won });
                 Require(game.State == RunnerGameManager.GameState.Won, "Победа не завершает забег.");
                 Require(!player.GetComponent<Rigidbody2D>().simulated, "Игрок движется после завершения.");
-                Require(canvas.transform.Find("Result").GetComponent<TMP_Text>().text == "", "После победы показано меню.");
+                Require(canvas.transform.Find("Result").GetComponent<Text>().text == "", "После победы показано меню.");
             }
             finally
             {
