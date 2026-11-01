@@ -72,10 +72,10 @@ namespace PinchOfTheft.Interaction.Editor
                 fill.type = UnityEngine.UI.Image.Type.Filled;
                 fill.fillMethod = UnityEngine.UI.Image.FillMethod.Vertical;
                 fill.fillOrigin = 0; fill.fillAmount = 0; fill.color = new Color(0.6f, 0.8f, 1);
-                var textObject = new GameObject("E", typeof(RectTransform), typeof(Text));
+                var textObject = new GameObject("F", typeof(RectTransform), typeof(Text));
                 textObject.transform.SetParent(canvasObject.transform, false);
                 textObject.GetComponent<RectTransform>().sizeDelta = new Vector2(100, 100);
-                var text = textObject.GetComponent<Text>(); text.text = "E"; text.fontSize = 64;
+                var text = textObject.GetComponent<Text>(); text.text = "F"; text.fontSize = 64;
                 text.font = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
                 text.alignment = TextAnchor.MiddleCenter; text.raycastTarget = false;
                 textObject.AddComponent<Shadow>();

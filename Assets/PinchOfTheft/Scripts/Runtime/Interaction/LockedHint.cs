@@ -39,9 +39,17 @@ namespace PinchOfTheft.Interaction
             SetVisible(visible);
         }
 
+        // Показывает отсутствие энергии иконкой вместо текста.
         private void SetVisible(bool value)
         {
-            if (label != null && label.activeSelf != value) label.SetActive(value);
+            if (label != null) label.SetActive(false);
+            if (value) InteractionIconOverlay.Show(this, label != null ? label.transform : transform, InteractionIconOverlay.Kind.NoPower);
+            else InteractionIconOverlay.Hide(this);
+        }
+        // Убирает иконку при отключении компонента.
+        private void OnDisable()
+        {
+            InteractionIconOverlay.Hide(this);
         }
     }
 }

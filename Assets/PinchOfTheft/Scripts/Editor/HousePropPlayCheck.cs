@@ -76,7 +76,7 @@ namespace PinchOfTheft.Editor
                     Require(board.IsAimed, "Board was not aimed");
                     Require(Field<GameObject>(board, "popup").activeSelf, "Board popup hidden");
                     Require(Field<GameObject>(board, "popup").GetComponentInChildren<Text>().text.Contains("Уронить"), "Popup label");
-                    InputSystem.QueueStateEvent(keyboard, new KeyboardState(Key.E));
+                    InputSystem.QueueStateEvent(keyboard, new KeyboardState(Key.F));
                     frame = Time.frameCount;
                     phase = 2;
                 }

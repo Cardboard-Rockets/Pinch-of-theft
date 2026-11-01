@@ -6,7 +6,7 @@ namespace PinchOfTheft.Interaction
 {
     public sealed class InteractableSphere : MonoBehaviour
     {
-        [Header("Действие при удержании E")]
+        [Header("Действие при удержании F")]
         [SerializeField, Tooltip("Группа камер; -1 отключает разблокировку")] private int unlockGroup = -1;
         [SerializeField] private KeyPrompt prompt;
         [SerializeField] private CameraManager cameraManager;
@@ -35,6 +35,13 @@ namespace PinchOfTheft.Interaction
             if (!value) prompt.Hide();
             else { prompt.gameObject.SetActive(true); prompt.SetProgress(0); prompt.SetHighlighted(false); }
         }
+        // Разрешает повторную попытку взаимодействия после выхода из мини-игры без победы.
+        public void CancelCompletion()
+        {
+            HasCompleted = false;
+            SetAvailable(true);
+        }
+
         public void SetVisual(float progress, bool highlighted)
         {
             if (prompt == null || !IsAvailable) return;

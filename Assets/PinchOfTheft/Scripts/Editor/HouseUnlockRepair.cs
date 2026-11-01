@@ -148,7 +148,7 @@ namespace PinchOfTheft.Editor
                     float pixels = Vector3.Distance(view.WorldToScreenPoint(corners[0]), view.WorldToScreenPoint(corners[3]));
                     if (pixels < 8f) throw new Exception("Prompt too small: " + pixels + "px");
                     File.AppendAllText("Logs/Unlock-Repair.txt", "\nPROMPT_VISIBLE " + target.name + " width=" + width + " pixels=" + pixels);
-                    InputSystem.QueueStateEvent(keyboard,new KeyboardState(Key.E));began=Time.time;frame=Time.frameCount;stage+=3;
+                    InputSystem.QueueStateEvent(keyboard,new KeyboardState(Key.F));began=Time.time;frame=Time.frameCount;stage+=3;
                 }
                 else if(stage==4||stage==6)
                 {

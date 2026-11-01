@@ -1,0 +1,15 @@
+C:\Users\maksim\Pinch of theft\Assets\MiniGames\PopTheLock\.Checks~\bin\Debug\net10.0\Checks.exe
+C:\Users\maksim\Pinch of theft\Assets\MiniGames\PopTheLock\.Checks~\bin\Debug\net10.0\Checks.deps.json
+C:\Users\maksim\Pinch of theft\Assets\MiniGames\PopTheLock\.Checks~\bin\Debug\net10.0\Checks.runtimeconfig.json
+C:\Users\maksim\Pinch of theft\Assets\MiniGames\PopTheLock\.Checks~\bin\Debug\net10.0\Checks.dll
+C:\Users\maksim\Pinch of theft\Assets\MiniGames\PopTheLock\.Checks~\bin\Debug\net10.0\Checks.pdb
+C:\Users\maksim\Pinch of theft\Assets\MiniGames\PopTheLock\.Checks~\obj\Debug\net10.0\Checks.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\maksim\Pinch of theft\Assets\MiniGames\PopTheLock\.Checks~\obj\Debug\net10.0\Checks.AssemblyInfoInputs.cache
+C:\Users\maksim\Pinch of theft\Assets\MiniGames\PopTheLock\.Checks~\obj\Debug\net10.0\Checks.AssemblyInfo.cs
+C:\Users\maksim\Pinch of theft\Assets\MiniGames\PopTheLock\.Checks~\obj\Debug\net10.0\Checks.csproj.CoreCompileInputs.cache
+C:\Users\maksim\Pinch of theft\Assets\MiniGames\PopTheLock\.Checks~\obj\Debug\net10.0\Checks.sourcelink.json
+C:\Users\maksim\Pinch of theft\Assets\MiniGames\PopTheLock\.Checks~\obj\Debug\net10.0\Checks.dll
+C:\Users\maksim\Pinch of theft\Assets\MiniGames\PopTheLock\.Checks~\obj\Debug\net10.0\refint\Checks.dll
+C:\Users\maksim\Pinch of theft\Assets\MiniGames\PopTheLock\.Checks~\obj\Debug\net10.0\Checks.pdb
+C:\Users\maksim\Pinch of theft\Assets\MiniGames\PopTheLock\.Checks~\obj\Debug\net10.0\Checks.genruntimeconfig.cache
+C:\Users\maksim\Pinch of theft\Assets\MiniGames\PopTheLock\.Checks~\obj\Debug\net10.0\ref\Checks.dll

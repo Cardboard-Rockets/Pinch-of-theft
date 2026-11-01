@@ -42,7 +42,7 @@ namespace PinchOfTheft.Interaction.Editor
             var alpha = canvas.AddComponent<CanvasGroup>(); alpha.blocksRaycasts = false; alpha.alpha = 0;
             Image("Background", canvas.transform, new Vector2(80,80)).color = Color.black;
             var fill = Image("Fill", canvas.transform, new Vector2(80,80)); fill.sprite = AssetDatabase.GetBuiltinExtraResource<Sprite>("UI/Skin/UISprite.psd"); fill.type = UnityEngine.UI.Image.Type.Filled; fill.fillMethod = UnityEngine.UI.Image.FillMethod.Vertical; fill.fillOrigin = 0; fill.fillAmount = 0;
-            Label("E", canvas.transform, "E", new Vector2(80,80), Vector2.zero).color = Color.cyan;
+            Label("F", canvas.transform, "F", new Vector2(80,80), Vector2.zero).color = Color.cyan;
             var prompt = canvas.AddComponent<KeyPrompt>(); Set(prompt,"cameraManager",manager); Set(prompt,"canvasGroup",alpha); Set(prompt,"fill",fill); Set(interaction,"prompt",prompt); return interaction;
         }
         private static void Button(Transform parent, string title, Vector2 pos, UnityEngine.Events.UnityAction action)

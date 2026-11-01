@@ -65,7 +65,7 @@ namespace PinchOfTheft.Editor
                 else if(stage==6)
                 {
                     Require(Object.FindAnyObjectByType<SphereInteractor>().HasTarget,"Second unlocker not under crosshair on 13");
-                    Require(second.GetComponentInChildren<CanvasGroup>(true).alpha==1,"Prompt highlight");Press(Key.E);heldAt=Time.time;stage=7;
+                    Require(second.GetComponentInChildren<CanvasGroup>(true).alpha==1,"Prompt highlight");Press(Key.F);heldAt=Time.time;stage=7;
                 }
                 else if(stage==7)
                 {
@@ -76,7 +76,7 @@ namespace PinchOfTheft.Editor
                 {
                     Require(second.IsAvailable,"Premature unlock");
                     Require(second.GetComponentsInChildren<Image>(true).Where(i=>i.type==Image.Type.Filled).All(i=>i.fillAmount==0),"Hold not reset");
-                    Press(Key.E);heldAt=Time.time;stage=9;
+                    Press(Key.F);heldAt=Time.time;stage=9;
                 }
                 else if(stage==9)
                 {

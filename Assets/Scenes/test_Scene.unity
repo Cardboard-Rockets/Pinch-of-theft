@@ -2691,7 +2691,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: E
+  m_Text: F
 --- !u!222 &431486016
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3997,7 +3997,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: E
+  m_Text: F
 --- !u!222 &650322754
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4076,7 +4076,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: E
+  m_Text: F
 --- !u!222 &681263765
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6655,7 +6655,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "E  \u0423\u0440\u043E\u043D\u0438\u0442\u044C"
+  m_Text: "F  \u0423\u0440\u043E\u043D\u0438\u0442\u044C"
 --- !u!222 &1152865985
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7735,7 +7735,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: E
+  m_Text: F
 --- !u!222 &1487916677
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -8972,7 +8972,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: E
+  m_Text: F
 --- !u!222 &1658245738
 CanvasRenderer:
   m_ObjectHideFlags: 0

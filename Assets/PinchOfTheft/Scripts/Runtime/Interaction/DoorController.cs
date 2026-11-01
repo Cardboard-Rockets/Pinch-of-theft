@@ -43,7 +43,7 @@ namespace PinchOfTheft.Interaction
         private void Start()
         {
             PinchOfTheft.Core.GameContext.Resolve(this);
-            actionText = "E  " + popupText;
+            actionText = "F  " + popupText;
             if (PinchOfTheft.Core.GameContext.Instance != null)
             {
                 probe = PinchOfTheft.Core.GameContext.Instance.AimProbe;
@@ -85,7 +85,7 @@ namespace PinchOfTheft.Interaction
                 }
             }
             SetPopup(IsAimed);
-            if (IsUnlocked && IsAimed && Keyboard.current != null && Keyboard.current.eKey.wasPressedThisFrame)
+            if (IsUnlocked && IsAimed && Keyboard.current != null && Keyboard.current.fKey.wasPressedThisFrame)
                 BeginApproach();
             if (!pending || Time.frameCount == commandFrame || Time.time - commandTime < 0.25f) return;
             if (Vector3.Distance(mover.Destination, destination) > 0.2f)
@@ -183,14 +183,13 @@ namespace PinchOfTheft.Interaction
             return false;
         }
 
+        // Показывает иконку действия поверх сцены вместо текста.
         private void SetPopup(bool visible)
         {
             if (popup == null) return;
-            popup.SetActive(visible);
-            if (!visible) return;
-            if (billboard != null) billboard.enabled = true;
-            var text = popupLabel;
-            if (text != null) { var value = IsUnlocked ? actionText : "Закрыто"; if (text.text != value) text.text = value; }
+            popup.SetActive(false);
+            if (!visible) { InteractionIconOverlay.Hide(this); return; }
+            InteractionIconOverlay.Show(this, popup.transform, IsUnlocked ? InteractionIconOverlay.Kind.Unlocked : InteractionIconOverlay.Kind.Locked);
         }
     }
 }

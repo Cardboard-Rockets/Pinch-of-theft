@@ -337,7 +337,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "E  \u0423\u0440\u043E\u043D\u0438\u0442\u044C"
+  m_Text: "F  \u0423\u0440\u043E\u043D\u0438\u0442\u044C"
 --- !u!1 &8032234174751152804
 GameObject:
   m_ObjectHideFlags: 0

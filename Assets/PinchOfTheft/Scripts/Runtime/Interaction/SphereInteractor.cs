@@ -25,7 +25,7 @@ namespace PinchOfTheft.Interaction
             if(cameraManager==null || probe==null || cameraManager.InputLocked) { ResetTarget();return; }
             var keyboard=Keyboard.current;
             if(keyboard==null){ResetTarget();return;}
-            if(!keyboard.eKey.isPressed)waitForRelease=false;
+            if(!keyboard.fKey.isPressed)waitForRelease=false;
             var active=cameraManager.ActiveCamera;
             bool changed=active!=previousCamera;previousCamera=active;
             InteractableSphere next=null;
@@ -33,7 +33,7 @@ namespace PinchOfTheft.Interaction
             {next=probe.Collider.GetComponentInParent<InteractableSphere>();if(next!=null && !next.IsAvailable)next=null;}
             if(changed || next!=target)ResetTarget();target=next;
             if(!HasTarget)return;
-            if(changed || !keyboard.eKey.isPressed || waitForRelease)
+            if(changed || !keyboard.fKey.isPressed || waitForRelease)
             {
                 if (holdSoundStarted) { GameContext.Audio?.CancelHold(); holdSoundStarted = false; }
                 progress=0;

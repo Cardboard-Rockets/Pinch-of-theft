@@ -39,7 +39,7 @@ namespace PinchOfTheft.Editor
                 {
                     if(!Object.FindAnyObjectByType<SphereInteractor>().HasTarget)throw new Exception("No target "+target.name);
                     if(target.GetComponentInChildren<CanvasGroup>(true).alpha<0.99f)throw new Exception("No prompt "+target.name);
-                    InputSystem.QueueStateEvent(keyboard,new KeyboardState(Key.E));heldAt=Time.time;frame=Time.frameCount;phase++;
+                    InputSystem.QueueStateEvent(keyboard,new KeyboardState(Key.F));heldAt=Time.time;frame=Time.frameCount;phase++;
                 }
                 else if(phase==2)
                 {

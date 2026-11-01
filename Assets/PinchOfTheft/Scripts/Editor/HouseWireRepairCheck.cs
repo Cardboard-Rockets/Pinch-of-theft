@@ -51,7 +51,7 @@ namespace PinchOfTheft.Editor
                     R(repair.IsAimed,"Camera14 repair not aimed, first hit="+GameContext.Instance.AimProbe.Collider);
                     R(F<GameObject>(repair,"popup").activeSelf&&F<GameObject>(repair,"popup").GetComponentInChildren<Text>().text.Contains("Починить"),"Repair caption");
                     var path=new NavMeshPath();NavMesh.CalculatePath(GameContext.Instance.PlayerMover.transform.position,F<Transform>(repair,"approachPoint").position,NavMesh.AllAreas,path);R(path.status==NavMeshPathStatus.PathComplete,"Repair approach unreachable");
-                    InputSystem.QueueStateEvent(keyboard,new KeyboardState(Key.E));phase=2;frame=Time.frameCount;return;
+                    InputSystem.QueueStateEvent(keyboard,new KeyboardState(Key.F));phase=2;frame=Time.frameCount;return;
                 }
                 if(phase==2)
                 {

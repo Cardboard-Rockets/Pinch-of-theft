@@ -110,7 +110,7 @@ namespace PinchOfTheft.Editor
                 var popup = (GameObject)typeof(BoardController).GetField("popup", BindingFlags.Instance | BindingFlags.NonPublic).GetValue(controller);
                 if (!popup.activeSelf || !popup.GetComponentInChildren<Text>().text.Contains("Отодвинуть"))
                     throw new Exception("Box popup missing");
-                InputSystem.QueueStateEvent(keyboard, new KeyboardState(Key.E));
+                InputSystem.QueueStateEvent(keyboard, new KeyboardState(Key.F));
                 frame = Time.frameCount;
                 phase = 3;
             }

@@ -35,7 +35,7 @@ namespace PinchOfTheft.Editor
             }
             Require(found,"Cannot aim at "+target.name);Physics.SyncTransforms();frame=Time.frameCount;
         }
-        private static void Press(){Require(Object.FindAnyObjectByType<SphereInteractor>().HasTarget,"Missing target "+target.name);InputSystem.QueueStateEvent(keyboard,new KeyboardState(Key.E));heldAt=Time.time;frame=Time.frameCount;}
+        private static void Press(){Require(Object.FindAnyObjectByType<SphereInteractor>().HasTarget,"Missing target "+target.name);InputSystem.QueueStateEvent(keyboard,new KeyboardState(Key.F));heldAt=Time.time;frame=Time.frameCount;}
         private static void Release(){InputSystem.QueueStateEvent(keyboard,new KeyboardState());frame=Time.frameCount;}
         private static void Tick()
         {

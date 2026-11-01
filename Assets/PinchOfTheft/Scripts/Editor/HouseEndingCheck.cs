@@ -56,7 +56,7 @@ namespace PinchOfTheft.Editor
                 }
                 if(phase==3)
                 {
-                    R(entry.IsAimed,"Entry not aimed hit="+GameContext.Instance.AimProbe.Collider);InputSystem.QueueStateEvent(keyboard,new KeyboardState(Key.E));frame=Time.frameCount;phase=4;return;
+                    R(entry.IsAimed,"Entry not aimed hit="+GameContext.Instance.AimProbe.Collider);InputSystem.QueueStateEvent(keyboard,new KeyboardState(Key.F));frame=Time.frameCount;phase=4;return;
                 }
                 if(phase==4)
                 {
@@ -68,7 +68,7 @@ namespace PinchOfTheft.Editor
                 }
                 if(phase==5)
                 {
-                    R(last.IsAimed,"Final laptop not aimed");R(endingLogs==0,"Early ending");InputSystem.QueueStateEvent(keyboard,new KeyboardState(Key.E));frame=Time.frameCount;phase=6;return;
+                    R(last.IsAimed,"Final laptop not aimed");R(endingLogs==0,"Early ending");InputSystem.QueueStateEvent(keyboard,new KeyboardState(Key.F));frame=Time.frameCount;phase=6;return;
                 }
                 if(phase==6)
                 {

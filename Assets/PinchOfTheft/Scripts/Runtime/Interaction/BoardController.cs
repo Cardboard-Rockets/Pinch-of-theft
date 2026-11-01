@@ -51,7 +51,7 @@ namespace PinchOfTheft.Interaction
         {
             PinchOfTheft.Core.GameContext.Resolve(this);
             SetAvailable(startAvailable);
-            actionText = "E  " + popupText;
+            actionText = "F  " + popupText;
             if (PinchOfTheft.Core.GameContext.Instance != null)
             {
                 probe = PinchOfTheft.Core.GameContext.Instance.AimProbe;
@@ -94,7 +94,7 @@ namespace PinchOfTheft.Interaction
                 }
             }
             SetPopup(IsAimed);
-            if (IsAimed && Keyboard.current != null && Keyboard.current.eKey.wasPressedThisFrame)
+            if (IsAimed && Keyboard.current != null && Keyboard.current.fKey.wasPressedThisFrame)
                 BeginApproach();
             if (!pending || Time.frameCount == commandFrame || Time.time - commandTime < 0.25f) return;
             if (Vector3.Distance(mover.Destination, destination) > 0.2f)
@@ -140,6 +140,15 @@ namespace PinchOfTheft.Interaction
             marker = PinchOfTheft.Core.GameContext.Instance.Marker;
             pending = false;
         }
+        // Восстанавливает взаимодействие с ноутбуком после выхода из мини-игры без победы.
+        public void RetryInteraction()
+        {
+            fallen = false;
+            pending = false;
+            enabled = true;
+            SetAvailable(true);
+        }
+
         public void SetAvailable(bool value)
         {
             if (fallen) return;
@@ -184,14 +193,13 @@ namespace PinchOfTheft.Interaction
             return false;
         }
 
+        // Показывает иконку действия поверх сцены вместо текста.
         private void SetPopup(bool visible)
         {
             if (popup == null) return;
-            popup.SetActive(visible);
-            if (!visible) return;
-            if (billboard != null) billboard.enabled = true;
-            var text = popupLabel;
-            if (text != null && text.text != actionText) text.text = actionText;
+            popup.SetActive(false);
+            if (!visible) { InteractionIconOverlay.Hide(this); return; }
+            InteractionIconOverlay.Show(this, popup.transform, standingBoard != fallenBoard ? InteractionIconOverlay.Kind.Move : InteractionIconOverlay.Kind.Interact);
         }
     }
 }

@@ -308,7 +308,7 @@ namespace PinchOfTheft.Editor
             var text = label.GetComponent<Text>();
             text.font = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
             text.fontSize = 30; text.alignment = TextAnchor.MiddleCenter; text.color = Color.white;
-            text.text = "E  " + action; text.raycastTarget = false;
+            text.text = "F  " + action; text.raycastTarget = false;
             return root.transform;
         }
     }

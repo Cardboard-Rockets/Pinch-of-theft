@@ -102,7 +102,7 @@ namespace PinchOfTheft.CCTV
 
             if (keyboard != null && keyboard.nKey.wasPressedThisFrame) ToggleNightVision();
             if (keyboard != null && keyboard.qKey.wasPressedThisFrame) SwitchCamera(-1);
-            else if (keyboard != null && keyboard.eKey.wasPressedThisFrame && (interactor == null || !interactor.HasTarget) && !IsBoardAimed() && !IsDoorAimed()) SwitchCamera(1);
+            else if (keyboard != null && keyboard.eKey.wasPressedThisFrame) SwitchCamera(1);
             if (Mouse.current != null)
                 ActiveCamera.Rotate(Mouse.current.delta.ReadValue() * mouseSensitivity);
         }

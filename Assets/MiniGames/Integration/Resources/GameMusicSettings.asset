@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 850ce943a30a41a8bd6dde2421eebff6, type: 3}
+  m_Name: GameMusicSettings
+  m_EditorClassIdentifier: MiniGames.Integration::MiniGames.Integration.MusicSettings
+  mainTrack: {fileID: 8300000, guid: 080bdfdf80b2be54da15c4d2a1f78370, type: 3}
+  miniGameTrack: {fileID: 8300000, guid: 84bcc1ae0e7dfae408b233701ec720e8, type: 3}
+  mainVolume: 0.5
+  miniGameVolume: 0.5
+  repeatDelay: 5

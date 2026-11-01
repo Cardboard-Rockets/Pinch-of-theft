@@ -81,7 +81,7 @@ namespace PinchOfTheft.Editor
                 {
                     Require(Field<GameObject>(door,"popup").GetComponentInChildren<Text>().text.Contains("Открыть"), "Open caption missing");
                     Require(Field<GameObject>(door,"closedDoor").activeSelf, "Door opened before approach");
-                    InputSystem.QueueStateEvent(keyboard,new KeyboardState(Key.E));
+                    InputSystem.QueueStateEvent(keyboard,new KeyboardState(Key.F));
                     frame = Time.frameCount; phase = 4; return;
                 }
                 if (phase == 4)
