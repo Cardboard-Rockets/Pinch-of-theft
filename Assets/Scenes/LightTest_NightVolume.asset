@@ -15,19 +15,19 @@ MonoBehaviour:
   active: 1
   postExposure:
     m_OverrideState: 1
-    m_Value: -0.45
+    m_Value: -0.85
   contrast:
     m_OverrideState: 1
-    m_Value: -8
+    m_Value: 5
   colorFilter:
     m_OverrideState: 1
-    m_Value: {r: 0.88, g: 0.96, b: 1, a: 1}
+    m_Value: {r: 0.94, g: 0.975, b: 1, a: 1}
   hueShift:
     m_OverrideState: 1
     m_Value: 0
   saturation:
     m_OverrideState: 1
-    m_Value: -24
+    m_Value: -16
 --- !u!114 &-1216621516061285780
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -49,10 +49,10 @@ MonoBehaviour:
     m_Value: 1.25
   intensity:
     m_OverrideState: 1
-    m_Value: 0.28
+    m_Value: 0.18
   scatter:
     m_OverrideState: 1
-    m_Value: 0.55
+    m_Value: 0.5
   clamp:
     m_OverrideState: 1
     m_Value: 65472
@@ -93,10 +93,10 @@ MonoBehaviour:
   active: 1
   temperature:
     m_OverrideState: 1
-    m_Value: -7
+    m_Value: -6
   tint:
     m_OverrideState: 1
-    m_Value: -2
+    m_Value: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -115,6 +115,7 @@ MonoBehaviour:
   - {fileID: 1052315754049611418}
   - {fileID: -1216621516061285780}
   - {fileID: 7173750748008157695}
+  - {fileID: 4991608413579591930}
 --- !u!114 &1052315754049611418
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -130,10 +131,10 @@ MonoBehaviour:
   active: 1
   shadows:
     m_OverrideState: 1
-    m_Value: {x: 0.89523816, y: 0.96190476, z: 1, w: 0}
+    m_Value: {x: 0.985, y: 0.995, z: 1, w: 0}
   midtones:
     m_OverrideState: 1
-    m_Value: {x: 0.87500006, y: 0.96153855, z: 1, w: 0}
+    m_Value: {x: 1, y: 1, z: 1, w: 0}
   highlights:
     m_OverrideState: 1
     m_Value: {x: 1, y: 1, z: 1, w: 0}
@@ -149,6 +150,46 @@ MonoBehaviour:
   highlightsEnd:
     m_OverrideState: 1
     m_Value: 1
+--- !u!114 &4991608413579591930
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97c23e3b12dc18c42a140437e53d3951, type: 3}
+  m_Name: Tonemapping
+  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.Tonemapping
+  active: 1
+  mode:
+    m_OverrideState: 1
+    m_Value: 1
+  neutralHDRRangeReductionMode:
+    m_OverrideState: 1
+    m_Value: 2
+  acesPreset:
+    m_OverrideState: 1
+    m_Value: 3
+  hueShiftAmount:
+    m_OverrideState: 1
+    m_Value: 0
+  detectPaperWhite:
+    m_OverrideState: 1
+    m_Value: 0
+  paperWhite:
+    m_OverrideState: 1
+    m_Value: 300
+  detectBrightnessLimits:
+    m_OverrideState: 1
+    m_Value: 1
+  minNits:
+    m_OverrideState: 1
+    m_Value: 0.005
+  maxNits:
+    m_OverrideState: 1
+    m_Value: 1000
 --- !u!114 &7173750748008157695
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -170,7 +211,7 @@ MonoBehaviour:
     m_Value: {x: 0.5, y: 0.5}
   intensity:
     m_OverrideState: 1
-    m_Value: 0.15
+    m_Value: 0.1
   smoothness:
     m_OverrideState: 1
     m_Value: 0.35

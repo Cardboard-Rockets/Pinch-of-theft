@@ -21,12 +21,13 @@ public sealed class CCTVAnalogRendererFeature : ScriptableRendererFeature
     }
 
     [SerializeField] private EffectSettings settings = new EffectSettings();
+    [SerializeField] private Shader effectShader;
     private Material material;
     private AnalogPass pass;
 
     public override void Create()
     {
-        var shader = Shader.Find("Hidden/PinchOfTheft/CCTVAnalog");
+        var shader = effectShader != null ? effectShader : Shader.Find("Hidden/PinchOfTheft/CCTVAnalog");
         if (shader == null) return;
         if (material != null) CoreUtils.Destroy(material);
         material = CoreUtils.CreateEngineMaterial(shader);
@@ -36,7 +37,8 @@ public sealed class CCTVAnalogRendererFeature : ScriptableRendererFeature
     public override void AddRenderPasses(ScriptableRenderer renderer, ref RenderingData renderingData)
     {
         if (pass != null && renderingData.cameraData.cameraType == CameraType.Game &&
-            renderingData.cameraData.camera.GetComponent<CCTVCamera>() != null)
+            (renderingData.cameraData.camera.GetComponent<CCTVCamera>() != null ||
+             renderingData.cameraData.camera.GetComponent<SurveillanceCameraEffects>() != null))
             renderer.EnqueuePass(pass);
     }
 
@@ -67,6 +69,10 @@ public sealed class CCTVAnalogRendererFeature : ScriptableRendererFeature
             descriptor.clearBuffer = false;
             var destination = graph.CreateTexture(descriptor);
             var camera = cameraData.camera;
+            var cctv = camera.GetComponent<CCTVCamera>();
+            var effects = camera.GetComponent<SurveillanceCameraEffects>();
+            material.SetFloat("_CCTVInfrared", (cctv != null && cctv.NightVisionEnabled) ||
+                (effects != null && effects.NightVisionEnabled) ? 1f : 0f);
             material.SetVector("_CCTVParamsA", new Vector4(settings.grain, settings.scanlines, settings.glitch, settings.blur));
             material.SetVector("_CCTVParamsB", new Vector4(settings.desaturation, settings.vignette, settings.chromatic, settings.flicker));
             material.SetVector("_CCTVInfo", new Vector4(Time.unscaledTime, camera.pixelWidth, camera.pixelHeight, Time.frameCount));

@@ -2,7 +2,7 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!114 &-3978831561186926968
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -22,6 +22,7 @@ MonoBehaviour:
     vignette: 0.22
     chromatic: 0.3
     flicker: 0.3
+  effectShader: {fileID: 4800000, guid: 373ba91b353e5499292873cc1d0e0f0e, type: 3}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -48,7 +49,7 @@ MonoBehaviour:
     probeVolumeBlendStatesCS: {fileID: 0}
   m_RendererFeatures:
   - {fileID: -3978831561186926968}
-  m_RendererFeatureMap: 881e579ec659c8c8
+  m_RendererFeatureMap: 881e579ec659c8c8l
   xrSystemData: {fileID: 0}
   postProcessData: {fileID: 11400000, guid: 41439944d30ece34e96484bdb6645b55, type: 2}
   m_AssetVersion: 3

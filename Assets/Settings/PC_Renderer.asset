@@ -27,7 +27,7 @@ MonoBehaviour:
   m_RendererFeatures:
   - {fileID: 7833122117494664109}
   - {fileID: 619980995683989186}
-  m_RendererFeatureMap: ad6b866f10d7b46cc2b63c476e9d9a08
+  m_RendererFeatureMap: ad6b866f10d7b46cc2b63c476e9d9a08l
   xrSystemData: {fileID: 0}
   postProcessData: {fileID: 11400000, guid: 41439944d30ece34e96484bdb6645b55, type: 2}
   m_AssetVersion: 3
@@ -58,7 +58,7 @@ MonoBehaviour:
   m_TileOnlyMode: 0
 --- !u!114 &619980995683989186
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -78,6 +78,7 @@ MonoBehaviour:
     vignette: 0.22
     chromatic: 0.3
     flicker: 0.3
+  effectShader: {fileID: 4800000, guid: 373ba91b353e5499292873cc1d0e0f0e, type: 3}
 --- !u!114 &7833122117494664109
 MonoBehaviour:
   m_ObjectHideFlags: 1
