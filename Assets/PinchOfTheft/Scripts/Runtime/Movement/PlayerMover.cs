@@ -19,6 +19,7 @@ namespace PinchOfTheft.Movement
         }
         private void OnDisable()
         {
+            PinchOfTheft.Core.GameContext.Audio?.SetRobotMoving(false);
             var context = PinchOfTheft.Core.GameContext.Instance;
             if (context != null && context.PlayerMover == this) context.Register(null);
         }
@@ -32,6 +33,8 @@ namespace PinchOfTheft.Movement
         {
             if (agent != null && !agent.isOnNavMesh) WarnOffMesh();
         }
+
+        private void Update() => PinchOfTheft.Core.GameContext.Audio?.SetRobotMoving(IsMoving);
         private void WarnOffMesh()
         {
             if (warned) return;
@@ -106,6 +109,7 @@ namespace PinchOfTheft.Movement
                 return;
             }
             agent.SetDestination(point);
+            PinchOfTheft.Core.GameContext.Audio?.PlayRobotCall();
         }
     }
 }

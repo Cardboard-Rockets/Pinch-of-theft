@@ -5,6 +5,7 @@ using UnityEngine.AI;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using UnityEngine.Animations;
 
 namespace PinchOfTheft.Interaction
 {
@@ -45,6 +46,7 @@ namespace PinchOfTheft.Interaction
         private PinchOfTheft.Core.Billboard billboard;
         private Text popupLabel;
         private string actionText;
+        private Animator boardAnimator;
         private void Start()
         {
             PinchOfTheft.Core.GameContext.Resolve(this);
@@ -56,6 +58,7 @@ namespace PinchOfTheft.Interaction
                 PinchOfTheft.Core.GameContext.Instance.PlayerChanged += PlayerChanged;
             }
             cachedColliders = standingBoard != null ? standingBoard.GetComponentsInChildren<Collider>() : System.Array.Empty<Collider>();
+            boardAnimator = standingBoard != null ? standingBoard.GetComponent<Animator>() : null;
             if (cameraManager == null || mover == null || standingBoard == null || fallenBoard == null || approachPoint == null)
                 Debug.LogWarning("BoardController: назначь standingBoard, fallenBoard, approachPoint и PlayerMover", this);
             if (popup != null)
@@ -106,9 +109,19 @@ namespace PinchOfTheft.Interaction
                 fallen = true;
                 pending = false;
                 IsAimed = false;
-                if (hideStandingOnComplete) standingBoard.SetActive(false);
                 if (activeEffect != null) activeEffect.SetActive(false);
-                fallenBoard.SetActive(true);
+                if (boardAnimator != null && boardAnimator.runtimeAnimatorController != null)
+                {
+                    standingBoard.SetActive(true);
+                    boardAnimator.Play("Board_fall", 0, 0f);
+                    foreach (var collider in cachedColliders) if (collider != null) collider.enabled = false;
+                    if (fallenBoard != null && fallenBoard != standingBoard) fallenBoard.SetActive(false);
+                }
+                else
+                {
+                    if (hideStandingOnComplete) standingBoard.SetActive(false);
+                    if (fallenBoard != null) fallenBoard.SetActive(true);
+                }
                 SetPopup(false);
                 if (marker != null) marker.Hide();
                 onFallen.Invoke();

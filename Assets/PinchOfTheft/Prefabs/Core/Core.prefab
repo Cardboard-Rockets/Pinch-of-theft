@@ -813,6 +813,7 @@ GameObject:
   - component: {fileID: 4970280529267116077}
   - component: {fileID: 639474739097480700}
   - component: {fileID: 1265796195152486481}
+  - component: {fileID: 9000000000000000001}
   m_Layer: 0
   m_Name: Core
   m_TagString: Untagged
@@ -856,6 +857,31 @@ MonoBehaviour:
   inputLock: {fileID: 3295515571581624982}
   aimProbe: {fileID: 639474739097480700}
   hud: {fileID: 7292783265110771054}
+--- !u!114 &9000000000000000001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4625410542022028196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fbb30e0dd934c39a80e9cc617c5b97b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: PinchOfTheft.Runtime::PinchOfTheft.Core.AudioManager
+  robotCallClip: {fileID: 8300000, guid: c172abb0b4e9841d782c1859091aea28, type: 3}
+  otherInteractionClip: {fileID: 8300000, guid: 56844267833c14170a51d9497e16f79c, type: 3}
+  holdInteractionClip: {fileID: 8300000, guid: c7dc8116e08c7403cb58160f6df411a3, type: 3}
+  confirmationClip: {fileID: 8300000, guid: fa80197631b044adbbf09884f9e1067b, type: 3}
+  nightVisionClip: {fileID: 8300000, guid: b7852f07b4a4f460180bc4f3bc6ed97b, type: 3}
+  motorClip: {fileID: 8300000, guid: f75006bf1fa394406b1fd2920c57640f, type: 3}
+  robotCallVolume: 0.8
+  otherInteractionVolume: 0.8
+  holdInteractionVolume: 0.7
+  confirmationVolume: 0.85
+  nightVisionVolume: 0.7
+  motorVolume: 0.12
+  introMotorVolume: 0.23
 --- !u!114 &3295515571581624982
 MonoBehaviour:
   m_ObjectHideFlags: 0
