@@ -1,8 +1,15 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/PinchOfTheft/Intro/SiteMeshes/OriginalRearDoorExterior.asset.meta
 guid: 60f6eae00b017f44db35198edd620ac8
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 4300000
+========
+guid: f76a10294dfa39f469f3183dc63c18c9
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 23800000
+>>>>>>>> main:Assets/Scenes/HouseNavMesh.asset.meta
   userData: 
   assetBundleName: 
   assetBundleVariant: 

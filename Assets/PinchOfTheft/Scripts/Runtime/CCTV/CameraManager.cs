@@ -13,6 +13,20 @@ namespace PinchOfTheft.CCTV
         [SerializeField] private SphereInteractor interactor;
         [SerializeField] private BoardController board;
         [SerializeField] private DoorController door;
+        private BoardController[] sceneBoards;
+        private DoorController[] sceneDoors;
+        private bool IsBoardAimed()
+        {
+            if (sceneBoards != null) foreach (var candidate in sceneBoards)
+                if (candidate != null && candidate.isActiveAndEnabled && candidate.IsAimed) return true;
+            return false;
+        }
+        private bool IsDoorAimed()
+        {
+            if (sceneDoors != null) foreach (var candidate in sceneDoors)
+                if (candidate != null && candidate.isActiveAndEnabled && candidate.IsAimed) return true;
+            return false;
+        }
         public bool InputLocked { get => GameContext.Instance != null && GameContext.Instance.InputLock.IsLocked; set { if (GameContext.Instance == null) return; if (value) GameContext.Instance.InputLock.Acquire(this); else GameContext.Instance.InputLock.Release(this); } }
         public event System.Action<CCTVCamera> ActiveCameraChanged;
         private void Awake()
@@ -53,7 +67,9 @@ namespace PinchOfTheft.CCTV
             if (menu == null) menu = GameContext.Instance.Menu;
             if (interactor == null) interactor = GetComponentInChildren<SphereInteractor>(true);
             if (board == null) board = Object.FindAnyObjectByType<BoardController>();
+            sceneBoards = Object.FindObjectsByType<BoardController>(FindObjectsInactive.Include,FindObjectsSortMode.None);
             if (door == null) door = Object.FindAnyObjectByType<DoorController>();
+            sceneDoors = Object.FindObjectsByType<DoorController>(FindObjectsInactive.Include,FindObjectsSortMode.None);
             menu.Initialize(this);
             menu.SetCameraLabel("NO SIGNAL");
 
@@ -85,7 +101,7 @@ namespace PinchOfTheft.CCTV
             if (menu.IsOpen || ActiveCamera == null) return;
 
             if (keyboard != null && keyboard.qKey.wasPressedThisFrame) SwitchCamera(-1);
-            else if (keyboard != null && keyboard.eKey.wasPressedThisFrame && (interactor == null || !interactor.HasTarget) && (board == null || !board.IsAimed) && (door == null || !door.IsAimed)) SwitchCamera(1);
+            else if (keyboard != null && keyboard.eKey.wasPressedThisFrame && (interactor == null || !interactor.HasTarget) && !IsBoardAimed() && !IsDoorAimed()) SwitchCamera(1);
             if (Mouse.current != null)
                 ActiveCamera.Rotate(Mouse.current.delta.ReadValue() * mouseSensitivity);
         }

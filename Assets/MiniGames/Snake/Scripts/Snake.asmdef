@@ -1,5 +1,0 @@
-{
-  "name": "Snake",
-  "rootNamespace": "Snake",
-  "references": ["Unity.InputSystem", "UnityEngine.UI"]
-}

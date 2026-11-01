@@ -1,6 +1,0 @@
-{
-  "name": "Snake.Editor",
-  "rootNamespace": "Snake",
-  "references": ["Snake", "UnityEngine.UI"],
-  "includePlatforms": ["Editor"]
-}

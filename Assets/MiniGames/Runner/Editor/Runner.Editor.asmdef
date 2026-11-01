@@ -1,6 +1,0 @@
-{
-  "name": "Runner.Editor",
-  "rootNamespace": "Runner",
-  "references": ["Runner", "Unity.TextMeshPro", "UnityEngine.UI"],
-  "includePlatforms": ["Editor"]
-}
