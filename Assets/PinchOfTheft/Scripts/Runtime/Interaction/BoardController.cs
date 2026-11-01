@@ -25,12 +25,14 @@ namespace PinchOfTheft.Interaction
         [SerializeField] private float arriveTolerance = 0.4f;
         [SerializeField] private float sampleRadius = 1.5f;
         [SerializeField, Min(0f)] private float contactTolerance = 0.15f;
+        [SerializeField] private bool requireContact = true;
         [SerializeField] private UnityEvent onFallen = new();
         private bool pending;
         private bool fallen;
         private Vector3 destination;
         private int commandFrame;
         private float commandTime;
+        private float stoppedSince = -1f;
         public bool IsAimed { get; private set; }
         private Collider[] cachedColliders;
         private PinchOfTheft.Core.AimProbe probe;
@@ -47,6 +49,8 @@ namespace PinchOfTheft.Interaction
                 PinchOfTheft.Core.GameContext.Instance.PlayerChanged += PlayerChanged;
             }
             cachedColliders = standingBoard != null ? standingBoard.GetComponentsInChildren<Collider>() : System.Array.Empty<Collider>();
+            if (cameraManager == null || mover == null || standingBoard == null || fallenBoard == null || approachPoint == null)
+                Debug.LogWarning("BoardController: назначь standingBoard, fallenBoard, approachPoint и PlayerMover", this);
             if (popup != null)
             {
                 popupLabel = popup.GetComponentInChildren<Text>(true);
@@ -88,7 +92,9 @@ namespace PinchOfTheft.Interaction
                 pending = false;
                 return;
             }
-            if (!mover.PathPending && IsTouchingBoard())
+            Vector3 remaining = mover.transform.position - approachPoint.position;
+            remaining.y = 0f;
+            if (!mover.PathPending && (requireContact ? IsTouchingBoard() : remaining.sqrMagnitude <= arriveTolerance * arriveTolerance))
             {
                 fallen = true;
                 pending = false;
@@ -100,7 +106,12 @@ namespace PinchOfTheft.Interaction
                 onFallen.Invoke();
                 enabled = false;
             }
-            else if (!mover.PathPending && !mover.IsMoving) pending = false;
+            else if (!mover.PathPending && !mover.IsMoving)
+            {
+                if (stoppedSince < 0f) stoppedSince = Time.time;
+                else if (Time.time - stoppedSince > 0.3f) pending = false;
+            }
+            else stoppedSince = -1f;
         }
         private void PlayerChanged(PlayerMover player)
         {
@@ -122,6 +133,7 @@ namespace PinchOfTheft.Interaction
             pending = true;
             commandFrame = Time.frameCount;
             commandTime = Time.time;
+            stoppedSince = -1f;
         }
 
         private bool IsTouchingBoard()
@@ -131,7 +143,6 @@ namespace PinchOfTheft.Interaction
             Bounds body = capsule.bounds;
             float radius = Mathf.Min(body.extents.x, body.extents.z);
             float halfSegment = Mathf.Max(0f, body.extents.y - radius);
-            // Проверяем вдоль капсулы, поскольку её центр расположен выше пола.
             foreach (var collider in cachedColliders)
             {
                 if (!collider.enabled || collider.isTrigger) continue;
