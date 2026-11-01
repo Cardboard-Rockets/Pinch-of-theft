@@ -170,6 +170,5 @@ Packages/packages-lock.json linguist-generated
 # Exceptions for .asset files such as lightning pre-baking
 LightingData.asset     binary
 
-# NavMeshData is a Unity binary asset even though it uses the .asset extension.
-# Treat it as an atomic file so text merges cannot corrupt the bake.
-Assets/Scenes/*NavMesh.asset merge=binary -text
+# Baked NavMesh data is binary, not Unity YAML.
+*NavMesh.asset          binary
