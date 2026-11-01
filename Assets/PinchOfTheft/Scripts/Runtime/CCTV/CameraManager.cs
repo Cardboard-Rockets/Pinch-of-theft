@@ -100,10 +100,18 @@ namespace PinchOfTheft.CCTV
             }
             if (menu.IsOpen || ActiveCamera == null) return;
 
+            if (keyboard != null && keyboard.nKey.wasPressedThisFrame) ToggleNightVision();
             if (keyboard != null && keyboard.qKey.wasPressedThisFrame) SwitchCamera(-1);
             else if (keyboard != null && keyboard.eKey.wasPressedThisFrame && (interactor == null || !interactor.HasTarget) && !IsBoardAimed() && !IsDoorAimed()) SwitchCamera(1);
             if (Mouse.current != null)
                 ActiveCamera.Rotate(Mouse.current.delta.ReadValue() * mouseSensitivity);
+        }
+
+        public void ToggleNightVision()
+        {
+            if (InputLocked || menu == null || menu.IsOpen || ActiveCamera == null) return;
+            ActiveCamera.ToggleNightVision();
+            menu.SetCameraLabel(ActiveCamera.DisplayLabel);
         }
 
         private void SwitchCamera(int direction)
@@ -178,7 +186,7 @@ namespace PinchOfTheft.CCTV
                 if (camera != null) camera.SetActive(camera == selected);
             ActiveCamera = selected;
             ActiveCameraChanged?.Invoke(selected);
-            menu.SetCameraLabel("CAM " + selected.CameraName);
+            menu.SetCameraLabel(selected.DisplayLabel);
             menu.SetOpen(false);
         }
     }

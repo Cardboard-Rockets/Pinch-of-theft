@@ -18,13 +18,29 @@ namespace PinchOfTheft.CCTV
         public void SetAccessible(bool value) { if (isAccessible == value) return; isAccessible = value; AccessibilityChanged?.Invoke(); }
         public Camera View => view != null ? view : (view = GetComponent<Camera>());
         public void ConfigureGroup(int value, bool accessible) { group = value; SetAccessible(accessible); SetVisibleInMenu(accessible); }
-        private void OnEnable() => AccessibilityChanged?.Invoke();
-        private void OnDisable() => AccessibilityChanged?.Invoke();
+        private void OnEnable() { UpdateInfraredLight(); AccessibilityChanged?.Invoke(); }
+        private void OnDisable() { UpdateInfraredLight(); AccessibilityChanged?.Invoke(); }
         private Quaternion initialRotation;
         private float yaw;
         private float pitch;
         private Camera view;
         private AudioListener listener;
+        private SurveillanceCameraEffects effects;
+        public bool NightVisionEnabled => effects != null && effects.NightVisionEnabled;
+        public string DisplayLabel => "CAM " + CameraName + (NightVisionEnabled ? "  [IR]" : "");
+
+        public void ToggleNightVision()
+        {
+            if (effects == null) effects = GetComponent<SurveillanceCameraEffects>();
+            if (effects == null) effects = gameObject.AddComponent<SurveillanceCameraEffects>();
+            effects.ToggleNightVision();
+        }
+
+        private void UpdateInfraredLight()
+        {
+            if (effects == null) effects = GetComponent<SurveillanceCameraEffects>();
+            if (effects != null) effects.RefreshLight();
+        }
 
         public int Group => group;
         public int Slot => slot;
@@ -45,6 +61,7 @@ namespace PinchOfTheft.CCTV
             if (listener == null) listener = GetComponent<AudioListener>();
             view.enabled = active;
             listener.enabled = active;
+            UpdateInfraredLight();
         }
 
         public void Rotate(Vector2 delta)
