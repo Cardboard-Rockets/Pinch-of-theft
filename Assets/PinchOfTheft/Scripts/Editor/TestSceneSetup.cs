@@ -57,7 +57,7 @@ namespace PinchOfTheft.CCTV.Editor
             var scaler = canvasObject.GetComponent<CanvasScaler>();
             scaler.uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
             scaler.referenceResolution = new Vector2(1920, 1080);
-            var hint = Label("Controls", canvasObject.transform, "TAB - Cameras     Mouse - Look     Q / E - Cameras in group", 26);
+            var hint = Label("Controls", canvasObject.transform, "TAB - Cameras   Mouse - Look   Q / E - Cameras   N - IR night vision", 26);
             hint.rectTransform.anchorMin = hint.rectTransform.anchorMax = new Vector2(0.5f, 0);
             hint.rectTransform.anchoredPosition = new Vector2(0, 45);
             hint.rectTransform.sizeDelta = new Vector2(900, 60);

@@ -1399,4 +1399,4 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: TAB - Cameras     Mouse - Look     Q / E - Cameras in group
+  m_Text: TAB - Cameras   Mouse - Look   Q / E - Cameras   N - IR night vision

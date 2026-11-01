@@ -12,7 +12,7 @@ namespace PinchOfTheft.Core
         private CameraManager manager;
         private void Start() { if (!GameContext.Require(this)) return; manager = GameContext.Instance.CameraManager; manager.ActiveCameraChanged += Changed; Changed(manager.ActiveCamera); }
         private void OnDestroy() { if (manager != null) manager.ActiveCameraChanged -= Changed; }
-        private void Changed(CCTVCamera camera) => SetCameraLabel(camera != null ? "CAM " + camera.CameraName : "NO SIGNAL");
+        private void Changed(CCTVCamera camera) => SetCameraLabel(camera != null ? camera.DisplayLabel : "NO SIGNAL");
         public void SetCameraLabel(string text) { if (cameraLabel != null && cameraLabel.text != text) cameraLabel.text = text; }
         public void Hide(object owner) { owners.Add(owner); Apply(); }
         public void Show(object owner) { owners.Remove(owner); Apply(); }
