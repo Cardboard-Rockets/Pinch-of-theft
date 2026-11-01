@@ -4,6 +4,7 @@ using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
+using UnityEngine.SceneManagement;
 
 public static class ConfigureLightTestNight
 {
@@ -15,6 +16,21 @@ public static class ConfigureLightTestNight
     public static void Configure()
     {
         var scene = EditorSceneManager.OpenScene(ScenePath, OpenSceneMode.Single);
+        Apply(scene);
+    }
+
+    [MenuItem("Tools/Lighting/Apply Night Lighting To Current Scene")]
+    public static void ApplyToCurrentScene()
+    {
+        Apply(SceneManager.GetActiveScene());
+    }
+
+    [MenuItem("Tools/Lighting/Apply Night Lighting To Current Scene", true)]
+    public static bool CanApplyToCurrentScene() => !EditorApplication.isPlayingOrWillChangePlaymode && SceneManager.GetActiveScene().IsValid();
+
+    private static void Apply(Scene scene)
+    {
+        if (!scene.IsValid() || !scene.isLoaded) throw new System.InvalidOperationException("No loaded scene is active");
         var sky = AssetDatabase.LoadAssetAtPath<Material>(SkyPath);
         if (!sky)
         {
@@ -41,21 +57,28 @@ public static class ConfigureLightTestNight
         RenderSettings.fogColor = new Color(0.025f, 0.034f, 0.050f);
         RenderSettings.fogDensity = 0.008f;
 
-        var lights = Object.FindObjectsByType<Light>(FindObjectsInactive.Include, FindObjectsSortMode.None);
+        var lights = scene.GetRootGameObjects().SelectMany(root => root.GetComponentsInChildren<Light>(true)).ToArray();
+        var moon = lights.FirstOrDefault(light => light.type == LightType.Directional);
+        if (!moon)
+        {
+            var moonObject = new GameObject("Night Directional Light");
+            SceneManager.MoveGameObjectToScene(moonObject, scene);
+            moonObject.transform.rotation = Quaternion.Euler(35f, -35f, 0f);
+            moon = moonObject.AddComponent<Light>();
+            moon.type = LightType.Directional;
+            Undo.RegisterCreatedObjectUndo(moonObject, "Create night directional light");
+            lights = lights.Append(moon).ToArray();
+        }
         foreach (var light in lights)
         {
             if (light.type == LightType.Directional)
             {
+                Undo.RecordObject(light, "Apply night lighting");
                 light.color = new Color(0.58f, 0.70f, 0.84f);
                 light.intensity = 0.10f;
                 light.shadows = LightShadows.Soft;
                 light.shadowStrength = 0.68f;
                 RenderSettings.sun = light;
-            }
-            else if (light.type == LightType.Spot && light.intensity > 50f)
-            {
-                light.color = new Color(0.90f, 0.92f, 1f);
-                light.intensity = 55f;
             }
             EditorUtility.SetDirty(light);
         }
@@ -63,34 +86,39 @@ public static class ConfigureLightTestNight
         var profile = AssetDatabase.LoadAssetAtPath<VolumeProfile>(ProfilePath);
         if (!profile) throw new System.InvalidOperationException("Night volume profile is missing");
 
-        var volume = Object.FindObjectsByType<Volume>(FindObjectsInactive.Include, FindObjectsSortMode.None)
-            .FirstOrDefault(v => v.gameObject.scene == scene && v.isGlobal);
+        var volume = scene.GetRootGameObjects().SelectMany(root => root.GetComponentsInChildren<Volume>(true))
+            .FirstOrDefault(v => v.isGlobal && (v.name == "Night Atmosphere Volume" || v.sharedProfile == profile));
         if (!volume)
         {
             var go = new GameObject("Night Atmosphere Volume");
+            SceneManager.MoveGameObjectToScene(go, scene);
             volume = go.AddComponent<Volume>();
+            Undo.RegisterCreatedObjectUndo(go, "Create night atmosphere volume");
         }
         volume.isGlobal = true;
         volume.priority = 10f;
         volume.sharedProfile = profile;
         EditorUtility.SetDirty(volume);
 
-        foreach (var camera in Object.FindObjectsByType<Camera>(FindObjectsInactive.Include, FindObjectsSortMode.None))
+        var cameras = scene.GetRootGameObjects().SelectMany(root => root.GetComponentsInChildren<Camera>(true)).ToArray();
+        foreach (var camera in cameras)
         {
-            if (camera.gameObject.scene != scene) continue;
-            camera.allowHDR = true;
             var data = camera.GetUniversalAdditionalCameraData();
+            if (data.renderType == CameraRenderType.Overlay) continue;
+            Undo.RecordObject(camera, "Enable night post processing");
+            Undo.RecordObject(data, "Enable night post processing");
+            camera.allowHDR = true;
             data.renderPostProcessing = true;
             EditorUtility.SetDirty(camera);
             EditorUtility.SetDirty(data);
         }
 
-        foreach (var probe in Object.FindObjectsByType<ReflectionProbe>(FindObjectsInactive.Include, FindObjectsSortMode.None))
-            if (probe.gameObject.scene == scene) Debug.Log("Existing reflection probe: " + probe.name);
+        foreach (var probe in scene.GetRootGameObjects().SelectMany(root => root.GetComponentsInChildren<ReflectionProbe>(true)))
+            Debug.Log("Existing reflection probe in " + scene.name + ": " + probe.name);
         EditorSceneManager.MarkSceneDirty(scene);
         EditorSceneManager.SaveScene(scene);
         AssetDatabase.SaveAssets();
-        Debug.Log($"Night setup saved. Lights: {lights.Length}; cameras: {Object.FindObjectsByType<Camera>(FindObjectsInactive.Include, FindObjectsSortMode.None).Length}");
+        Debug.Log($"Night setup saved to {scene.name}. Lights: {lights.Length}; cameras: {cameras.Length}");
     }
 
 }
