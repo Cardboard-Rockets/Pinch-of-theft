@@ -28,11 +28,22 @@ namespace PinchOfTheft.Movement
             (agent.pathPending || (agent.hasPath && agent.remainingDistance > agent.stoppingDistance));
 
         private void Awake() => agent = GetComponent<NavMeshAgent>();
+        private void Start()
+        {
+            if (agent != null && !agent.isOnNavMesh) WarnOffMesh();
+        }
+        private void WarnOffMesh()
+        {
+            if (warned) return;
+            warned = true;
+            Debug.LogWarning(gameObject.name + " не на NavMesh, запеки NavMesh", this);
+        }
 
         public bool TryMoveToWithClearance(Vector3 point, float sampleRadius, out Vector3 destination)
         {
             destination = point;
-            if (agent == null || !agent.isActiveAndEnabled || !agent.isOnNavMesh) return false;
+            if (agent == null || !agent.isActiveAndEnabled) return false;
+            if (!agent.isOnNavMesh) { WarnOffMesh(); return false; }
             if (destinationPath == null) destinationPath = new NavMeshPath();
             var filter = new NavMeshQueryFilter { agentTypeID = agent.agentTypeID, areaMask = agent.areaMask };
             float bestScore = float.PositiveInfinity;
@@ -91,11 +102,7 @@ namespace PinchOfTheft.Movement
             if (agent == null || !agent.isActiveAndEnabled) return;
             if (!agent.isOnNavMesh)
             {
-                if (!warned)
-                {
-                    Debug.LogWarning("Player не на NavMesh, запеки NavMesh", this);
-                    warned = true;
-                }
+                WarnOffMesh();
                 return;
             }
             agent.SetDestination(point);

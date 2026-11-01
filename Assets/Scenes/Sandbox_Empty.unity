@@ -167,6 +167,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6539692553272392211, guid: 6cbda8aaa5490c34eba71e93e7a17a6c, type: 3}
+      propertyPath: requirePower
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7828800828537552784, guid: 6cbda8aaa5490c34eba71e93e7a17a6c, type: 3}
       propertyPath: m_Name
       value: CurrentCircuit

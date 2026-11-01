@@ -26,11 +26,14 @@ namespace PinchOfTheft.Interaction
         [SerializeField] private float sampleRadius = 1.5f;
         [SerializeField, Min(0f)] private float contactTolerance = 0.15f;
         [SerializeField] private UnityEvent onOpened = new();
+        [SerializeField] private DoorOpener opener;
+        [SerializeField] private bool chooseReachableSide;
         private bool pending;
         private bool opened;
         private Vector3 destination;
         private int commandFrame;
         private float commandTime;
+        private float stoppedSince = -1f;
         public bool IsAimed { get; private set; }
         private Collider[] cachedColliders;
         private PinchOfTheft.Core.AimProbe probe;
@@ -95,14 +98,20 @@ namespace PinchOfTheft.Interaction
                 opened = true;
                 pending = false;
                 IsAimed = false;
-                closedDoor.SetActive(false);
-                openDoor.SetActive(true);
+                if (opener != null) opener.Open();
+                else { closedDoor.SetActive(false); openDoor.SetActive(true); }
                 SetPopup(false);
                 if (marker != null) marker.Hide();
                 onOpened.Invoke();
                 enabled = false;
             }
-            else if (!mover.PathPending && !mover.IsMoving) pending = false;
+            else if (!mover.PathPending && !mover.IsMoving)
+            {
+                // После остановки агента коллайдер обновляется на следующем шаге физики.
+                if (stoppedSince < 0f) stoppedSince = Time.time;
+                else if (Time.time - stoppedSince > 0.3f) pending = false;
+            }
+            else stoppedSince = -1f;
         }
         private void PlayerChanged(PlayerMover player)
         {
@@ -118,13 +127,39 @@ namespace PinchOfTheft.Interaction
         private void BeginApproach()
         {
             if (!IsUnlocked || opened) return;
-            if (!NavMesh.SamplePosition(approachPoint.position, out var hit, sampleRadius, NavMesh.AllAreas)) return;
-            destination = hit.position;
+            if (chooseReachableSide)
+            {
+                if (cachedColliders == null || cachedColliders.Length == 0) return;
+                var agent = mover.GetComponent<NavMeshAgent>();
+                if (agent == null || !agent.isOnNavMesh) return;
+                Bounds bounds = cachedColliders[0].bounds;
+                Vector3 normal = bounds.size.x < bounds.size.z ? Vector3.right : Vector3.forward;
+                float best = float.PositiveInfinity;
+                var path = new NavMeshPath();
+                for (int side = -1; side <= 1; side += 2)
+                {
+                    Vector3 candidate = bounds.center + normal * (agent.radius + 0.12f) * side;
+                    candidate.y = approachPoint.position.y;
+                    if (!NavMesh.SamplePosition(candidate, out var sample, sampleRadius, agent.areaMask) ||
+                        !agent.CalculatePath(sample.position,path) || path.status != NavMeshPathStatus.PathComplete) continue;
+                    var corners = path.corners; float length = 0f;
+                    for(int i=1;i<corners.Length;i++) length += Vector3.Distance(corners[i-1],corners[i]);
+                    if(length>=best)continue;
+                    best=length; destination=sample.position;
+                }
+                if(float.IsInfinity(best))return;
+            }
+            else
+            {
+                if (!NavMesh.SamplePosition(approachPoint.position, out var hit, sampleRadius, NavMesh.AllAreas)) return;
+                destination = hit.position;
+            }
             mover.MoveTo(destination);
             if (marker != null) marker.Show(destination);
             pending = true;
             commandFrame = Time.frameCount;
             commandTime = Time.time;
+            stoppedSince = -1f;
         }
 
         private bool IsTouchingDoor()
