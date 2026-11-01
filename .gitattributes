@@ -172,4 +172,4 @@ LightingData.asset     binary
 
 # NavMeshData is a Unity binary asset even though it uses the .asset extension.
 # Treat it as an atomic file so text merges cannot corrupt the bake.
-Assets/Scenes/*NavMesh.asset -merge -text
+Assets/Scenes/*NavMesh.asset merge=binary -text
