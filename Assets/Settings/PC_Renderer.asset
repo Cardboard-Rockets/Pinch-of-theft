@@ -27,7 +27,8 @@ MonoBehaviour:
   m_RendererFeatures:
   - {fileID: 7833122117494664109}
   - {fileID: 619980995683989186}
-  m_RendererFeatureMap: ad6b866f10d7b46cc2b63c476e9d9a08l
+  - {fileID: 0}
+  m_RendererFeatureMap: ad6b866f10d7b46cc2b63c476e9d9a089d4297e5e8f27312l
   xrSystemData: {fileID: 0}
   postProcessData: {fileID: 11400000, guid: 41439944d30ece34e96484bdb6645b55, type: 2}
   m_AssetVersion: 3
