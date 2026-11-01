@@ -26,9 +26,15 @@ namespace PinchOfTheft.Interaction
         [SerializeField] private float sampleRadius = 1.5f;
         [SerializeField, Min(0f)] private float contactTolerance = 0.15f;
         [SerializeField] private bool requireContact = true;
+        [Header("Условия действия")]
+        [SerializeField] private CCTVCamera requiredCamera;
+        [SerializeField] private bool startAvailable = true;
+        [SerializeField] private bool hideStandingOnComplete = true;
+        [SerializeField] private GameObject activeEffect;
         [SerializeField] private UnityEvent onFallen = new();
         private bool pending;
         private bool fallen;
+        private bool available;
         private Vector3 destination;
         private int commandFrame;
         private float commandTime;
@@ -42,6 +48,7 @@ namespace PinchOfTheft.Interaction
         private void Start()
         {
             PinchOfTheft.Core.GameContext.Resolve(this);
+            SetAvailable(startAvailable);
             actionText = "E  " + popupText;
             if (PinchOfTheft.Core.GameContext.Instance != null)
             {
@@ -68,14 +75,14 @@ namespace PinchOfTheft.Interaction
                 SetPopup(false);
                 return;
             }
-            if (cameraManager.InputLocked || fallen)
+            if (cameraManager.InputLocked || fallen || !available)
             {
                 pending = false;
                 SetPopup(false);
                 return;
             }
             var active = cameraManager.ActiveCamera;
-            if (active != null && menu != null && !menu.IsOpen)
+            if (active != null && (requiredCamera == null || active == requiredCamera) && menu != null && !menu.IsOpen)
             {
                 if (probe != null && probe.HasHit && probe.Hit.distance <= maxDistance)
                 {
@@ -99,7 +106,8 @@ namespace PinchOfTheft.Interaction
                 fallen = true;
                 pending = false;
                 IsAimed = false;
-                standingBoard.SetActive(false);
+                if (hideStandingOnComplete) standingBoard.SetActive(false);
+                if (activeEffect != null) activeEffect.SetActive(false);
                 fallenBoard.SetActive(true);
                 SetPopup(false);
                 if (marker != null) marker.Hide();
@@ -118,6 +126,13 @@ namespace PinchOfTheft.Interaction
             mover = player;
             marker = PinchOfTheft.Core.GameContext.Instance.Marker;
             pending = false;
+        }
+        public void SetAvailable(bool value)
+        {
+            if (fallen) return;
+            available = value;
+            if (activeEffect != null) activeEffect.SetActive(value);
+            if (!value) { pending = false; IsAimed = false; SetPopup(false); }
         }
         private void OnDestroy()
         {

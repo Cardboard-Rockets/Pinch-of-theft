@@ -18,7 +18,7 @@ namespace PinchOfTheft.Interaction
         [SerializeField] private bool useFixedCode;
         [SerializeField] private string fixedCode = "1234";
         [SerializeField] private string tvIdleText = "";
-        [SerializeField] private string tvSolvedText = "OK";
+        [SerializeField, HideInInspector] private string tvSolvedText = "OK";
         [SerializeField] private string successMessage = "Код принят: доступ разрешён";
         [SerializeField] private bool logWrongAttempts;
         [SerializeField] private string wrongMessage = "Неверный код";
@@ -66,7 +66,7 @@ namespace PinchOfTheft.Interaction
         {
             if (!HasPower || tvOn) return;
             tvOn = true;
-            if (tvText != null) tvText.text = solved ? tvSolvedText : code;
+            if (tvText != null) tvText.text = code;
             CodeStateChanged?.Invoke();
         }
         public bool CheckCode(string input)
@@ -82,7 +82,6 @@ namespace PinchOfTheft.Interaction
             solved = true;
             Debug.Log(successMessage);
             onSolved.Invoke();
-            if (tvText != null && tvOn) tvText.text = tvSolvedText;
             if (keypad != null) keypad.Close();
             if (panelInteractable != null) panelInteractable.SetAvailable(false);
             return true;

@@ -14,6 +14,8 @@ namespace PinchOfTheft.Interaction
         [SerializeField, Min(0f), Tooltip("Секунды удержания; 0 использует длительность Interactor")] private float holdDuration;
         [SerializeField] private bool singleUse = true;
         [SerializeField] private bool startAvailable = true;
+        [SerializeField] private bool preventReactivation;
+        public bool HasCompleted { get; private set; }
         public bool IsAvailable { get; private set; } = true;
         public float HoldDuration => holdDuration;
         private void Awake()
@@ -26,6 +28,7 @@ namespace PinchOfTheft.Interaction
         private void OnValidate() { if (prompt == null) prompt = GetComponentInChildren<KeyPrompt>(true); }
         public void SetAvailable(bool value)
         {
+            if (value && singleUse && preventReactivation && HasCompleted) return;
             IsAvailable = value;
             enabled = value;
             if (prompt == null) return;
@@ -40,6 +43,7 @@ namespace PinchOfTheft.Interaction
         public void Complete()
         {
             if (!IsAvailable) return;
+            HasCompleted = true;
             if (unlockGroup >= 0 && cameraManager != null) cameraManager.UnlockGroup(unlockGroup);
             if (singleUse) SetAvailable(false);
             onCompleted.Invoke();
