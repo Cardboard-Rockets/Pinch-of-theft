@@ -9,6 +9,7 @@ namespace Snake
     {
         public const int PasswordLength = 3;
         public const int InitialLength = 3;
+        public const int DeadCornerSize = 3;
         private readonly Random random;
         private readonly List<int> body = new List<int>();
         private readonly int[] symbols = new int[PasswordLength];
@@ -74,7 +75,7 @@ namespace Snake
             LastMoveWasWrong = false;
             int x = body[0] % Width + directionX;
             int y = body[0] / Width + directionY;
-            if (x < 0 || x >= Width || y < 0 || y >= Height)
+            if (x < 0 || x >= Width || y < 0 || y >= Height || IsDeadCell(x, y))
             {
                 State = SnakeState.Lost;
                 return;
@@ -112,13 +113,19 @@ namespace Snake
             PlaceSymbols();
         }
 
+        // Определяет смертельную область размером три на три клетки в левом верхнем углу.
+        public bool IsDeadCell(int x, int y)
+        {
+            return x >= 0 && x < DeadCornerSize && y >= 0 && y < DeadCornerSize;
+        }
+
         // Размещает все три символа в разных свободных клетках после начала игры или ошибки.
         private void PlaceSymbols()
         {
             var free = new List<int>();
             var occupied = new HashSet<int>(body);
             for (int cell = 0; cell < Width * Height; cell++)
-                if (!occupied.Contains(cell)) free.Add(cell);
+                if (!occupied.Contains(cell) && !IsDeadCell(cell % Width, cell / Width)) free.Add(cell);
             if (free.Count < PasswordLength)
             {
                 State = SnakeState.Lost;

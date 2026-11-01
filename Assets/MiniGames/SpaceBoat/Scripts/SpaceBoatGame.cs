@@ -38,8 +38,10 @@ namespace SpaceBoat
         private int total;
         private bool restartArmed;
         public GameState State { get; private set; }
+        public event System.Action<GameState> Finished;
         public float EnemySpeed => enemySpeed;
         public float BottomEdge => bottomEdge;
+        public Vector4 VisibleField => new Vector4(leftEdge, bottomEdge, rightEdge, topEdge);
         public float ProjectileSpeed => projectileSpeed;
         public float ProjectileLimit => Mathf.Max(topEdge, scene.CameraTop) + spawnOffset
             + rows * (enemyWidth * scene.EnemyAspectHeight + verticalGap) + 2f;
@@ -133,7 +135,11 @@ namespace SpaceBoat
             Remove(closest.gameObject);
             destroyed++;
             RefreshScore();
-            if (enemies.Count == 0) State = GameState.Won;
+            if (enemies.Count == 0)
+            {
+                State = GameState.Won;
+                Finished?.Invoke(State);
+            }
             return true;
         }
 
@@ -144,6 +150,7 @@ namespace SpaceBoat
             State = GameState.Lost;
             restartArmed = false;
             message.text = "Game over\nSpace or click to retry";
+            Finished?.Invoke(State);
         }
 
         // Обновляет количество уничтоженных противников.

@@ -6,7 +6,7 @@ namespace Snake
 {
     public sealed class SnakeView : MonoBehaviour
     {
-        [SerializeField] private Vector2 fieldTopLeft = new Vector2(-15.6f, 5.4f);
+        [SerializeField] private Vector2 fieldTopLeft = new Vector2(-15.6f, 8.6f);
         [SerializeField, Min(0.01f)] private float cellSize = 0.8f;
         private const float HeadFrameDuration = 0.12f;
         private readonly List<SpriteRenderer> segments = new List<SpriteRenderer>();

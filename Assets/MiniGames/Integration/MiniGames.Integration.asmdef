@@ -1,1 +1,1 @@
-{"name":"MiniGames.Integration","references":["Snake","PinchOfTheft.Runtime","Unity.InputSystem"]}
+{"name":"MiniGames.Integration","references":["Snake","SpaceBoat","Runner","PinchOfTheft.Runtime","Unity.InputSystem"]}

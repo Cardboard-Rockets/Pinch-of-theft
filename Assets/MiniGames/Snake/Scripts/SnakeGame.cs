@@ -5,8 +5,8 @@ namespace Snake
 {
     public sealed class SnakeGame : MonoBehaviour
     {
-        [SerializeField, Min(6)] private int columns = 28;
-        [SerializeField, Min(3)] private int rows = 16;
+        [SerializeField, Min(6)] private int columns = 29;
+        [SerializeField, Min(3)] private int rows = 20;
         [SerializeField, Min(0.05f)] private float stepInterval = 0.16f;
         [SerializeField] private SnakeView view;
         private SnakeBoard board;

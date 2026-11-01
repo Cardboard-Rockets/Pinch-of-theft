@@ -77,8 +77,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ca24b381aa4a26ae603609640bceab, type: 3}
   m_Name:
   m_EditorClassIdentifier: Snake::Snake.SnakeGame
-  columns: 28
-  rows: 16
+  columns: 29
+  rows: 20
   stepInterval: 0.16
   view: {fileID: 1004}
 --- !u!114 &1004
@@ -89,7 +89,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13d7f0c4a0544bb28a5174850140a824, type: 3}
   m_Name:
   m_EditorClassIdentifier: Snake::Snake.SnakeView
-  fieldTopLeft: {x: -15.6, y: 5.4}
+  fieldTopLeft: {x: -15.6, y: 8.6}
   cellSize: 0.8
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
