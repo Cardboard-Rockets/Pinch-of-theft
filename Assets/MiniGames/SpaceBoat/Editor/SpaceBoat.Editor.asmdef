@@ -1,0 +1,1 @@
+{"name":"SpaceBoat.Editor","rootNamespace":"SpaceBoat","references":["SpaceBoat","UnityEngine.UI"],"includePlatforms":["Editor"]}
