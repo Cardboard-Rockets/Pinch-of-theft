@@ -14,6 +14,7 @@ namespace PinchOfTheft.Core
         [SerializeField] private AimProbe aimProbe;
         [SerializeField] private Hud hud;
         public static GameContext Instance { get; private set; }
+        public static AudioManager Audio => Instance != null ? Instance.GetComponent<AudioManager>() : UnityEngine.Object.FindAnyObjectByType<AudioManager>();
         public CameraManager CameraManager => cameraManager;
         public CursorController CursorController => cursorController;
         public InputLock InputLock => inputLock;

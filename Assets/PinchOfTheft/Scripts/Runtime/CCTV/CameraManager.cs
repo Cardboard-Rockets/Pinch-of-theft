@@ -111,6 +111,7 @@ namespace PinchOfTheft.CCTV
         {
             if (InputLocked || menu == null || menu.IsOpen || ActiveCamera == null) return;
             ActiveCamera.ToggleNightVision();
+            PinchOfTheft.Core.GameContext.Audio?.PlayNightVision();
             menu.SetCameraLabel(ActiveCamera.DisplayLabel);
         }
 

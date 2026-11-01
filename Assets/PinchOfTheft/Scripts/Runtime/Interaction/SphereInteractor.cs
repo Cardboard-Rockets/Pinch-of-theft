@@ -16,6 +16,7 @@ namespace PinchOfTheft.Interaction
         private CCTVCamera previousCamera;
         private float progress;
         private bool waitForRelease;
+        private bool holdSoundStarted;
         private AimProbe probe;
         public bool HasTarget => target != null && target.IsAvailable;
         private void Start() { GameContext.Resolve(this); if(GameContext.Instance!=null)probe=GameContext.Instance.AimProbe; }
@@ -32,13 +33,23 @@ namespace PinchOfTheft.Interaction
             {next=probe.Collider.GetComponentInParent<InteractableSphere>();if(next!=null && !next.IsAvailable)next=null;}
             if(changed || next!=target)ResetTarget();target=next;
             if(!HasTarget)return;
-            if(changed || !keyboard.eKey.isPressed || waitForRelease)progress=0;
-            else progress+=Time.deltaTime/Mathf.Max(0.01f,target.HoldDuration>0?target.HoldDuration:holdDuration);
+            if(changed || !keyboard.eKey.isPressed || waitForRelease)
+            {
+                if (holdSoundStarted) { GameContext.Audio?.CancelHold(); holdSoundStarted = false; }
+                progress=0;
+            }
+            else
+            {
+                float duration = target.HoldDuration > 0 ? target.HoldDuration : holdDuration;
+                if (!holdSoundStarted) { GameContext.Audio?.BeginHold(duration); holdSoundStarted = true; }
+                progress+=Time.deltaTime/Mathf.Max(0.01f,duration);
+            }
             target.SetVisual(progress,true);
             if(progress<1)return;
-            target.Complete();waitForRelease=true;ResetTarget();
+            float completedDuration = target.HoldDuration > 0 ? target.HoldDuration : holdDuration;
+            target.Complete(); GameContext.Audio?.CompleteHold(completedDuration); holdSoundStarted = false; waitForRelease=true; ResetTarget();
         }
-        private void ResetTarget(){if(target!=null)target.SetVisual(0,false);target=null;progress=0;}
+        private void ResetTarget(){if (holdSoundStarted) { GameContext.Audio?.CancelHold(); holdSoundStarted = false; } if(target!=null)target.SetVisual(0,false);target=null;progress=0;}
         private void OnDisable()=>ResetTarget();
     }
 }
