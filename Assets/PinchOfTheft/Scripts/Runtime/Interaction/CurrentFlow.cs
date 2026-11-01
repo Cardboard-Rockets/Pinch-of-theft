@@ -238,6 +238,12 @@ namespace PinchOfTheft.Interaction
                 if (Vector3.Distance(a,b) > junctionTolerance)
                 { error = "Разрыв цепи: " + wires[i-1].name + " / " + wires[i].name; path.Clear(); return false; }
                 Vector3 joint = (a+b)*0.5f;
+                // Для тонкого провода середина зазора может оказаться вне его стенок.
+                if (!Contains(wires[i-1],joint) || !Contains(wires[i],joint))
+                {
+                    if (Contains(wires[i-1],a) && Contains(wires[i],a)) joint=a;
+                    else if (Contains(wires[i-1],b) && Contains(wires[i],b)) joint=b;
+                }
                 Add(joint); junctions.Add(joint);
             }
             Add(exits[exits.Length-1]); Add(Center(finishPoint));
@@ -335,6 +341,15 @@ namespace PinchOfTheft.Interaction
                 if (!collider.enabled || (collider is MeshCollider mesh && !mesh.convex)) continue;
                 tested=true;
                 if (Vector3.Distance(collider.ClosestPoint(point),point)<=0.01f) return true;
+            }
+            // При вложенном неравномерном масштабе Collider аппроксимирует форму,
+            // поэтому дополнительно проверяем точные преобразованные bounds меша провода.
+            var filter=obj.GetComponent<MeshFilter>();
+            if (filter != null && filter.sharedMesh != null)
+            {
+                Vector3 local=obj.InverseTransformPoint(point);
+                Vector3 closest=filter.sharedMesh.bounds.ClosestPoint(local);
+                if (Vector3.Distance(obj.TransformPoint(closest),point)<=0.01f) return true;
             }
             if (tested) return false;
             return obj.GetComponentsInChildren<Renderer>().Any(r => r.bounds.Contains(point));

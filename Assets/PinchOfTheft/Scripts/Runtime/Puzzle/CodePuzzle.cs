@@ -24,10 +24,15 @@ namespace PinchOfTheft.Interaction
         [SerializeField] private string wrongMessage = "Неверный код";
         [SerializeField] private UnityEvent onSolved = new();
         [SerializeField] private UnityEvent onWrong = new();
+        [SerializeField] private UnityEvent onCodeGenerated = new();
         private string code;
         private bool solved;
         private bool tvOn;
         public bool HasPower { get; private set; }
+        public bool HasCode => !string.IsNullOrEmpty(code);
+        public string Code => code;
+        public bool CodeVisible => tvOn;
+        public event System.Action CodeStateChanged;
         public int CodeLength => Mathf.Clamp(codeLength, 1, 8);
         public bool CanOpen => code != null && !solved;
         private void Start()
@@ -48,18 +53,21 @@ namespace PinchOfTheft.Interaction
             if (valid) foreach (char c in fixedCode) if (c < '0' || c > '9') valid = false;
             code = useFixedCode && valid ? fixedCode : "";
             if (code.Length == 0) for (int i = 0; i < CodeLength; i++) code += Random.Range(0, 10).ToString();
+            onCodeGenerated.Invoke();
             if (panelInteractable != null) panelInteractable.SetAvailable(true);
             if (separateTvActivation)
             {
                 if (tvInteractable != null) tvInteractable.SetAvailable(true);
             }
             else ActivateTV();
+            CodeStateChanged?.Invoke();
         }
         public void ActivateTV()
         {
             if (!HasPower || tvOn) return;
             tvOn = true;
             if (tvText != null) tvText.text = solved ? tvSolvedText : code;
+            CodeStateChanged?.Invoke();
         }
         public bool CheckCode(string input)
         {

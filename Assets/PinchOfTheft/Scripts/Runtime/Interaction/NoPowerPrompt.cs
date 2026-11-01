@@ -5,6 +5,7 @@ namespace PinchOfTheft.Interaction
     public sealed class NoPowerPrompt : MonoBehaviour
     {
         [SerializeField] private CodePuzzle puzzle;
+        [SerializeField] private CodeLock powerLock;
         [SerializeField] private GameObject popup;
         [SerializeField, Min(0f)] private float maxDistance = 15f;
         private GameContext context;
@@ -15,8 +16,8 @@ namespace PinchOfTheft.Interaction
         }
         private void Update()
         {
-            if (puzzle == null || popup == null) return;
-            if (puzzle.HasPower)
+            if ((puzzle == null && powerLock == null) || popup == null) return;
+            if (powerLock != null ? powerLock.HasPower : puzzle.HasPower)
             {
                 popup.SetActive(false);
                 enabled = false;

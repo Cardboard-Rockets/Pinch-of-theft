@@ -17,13 +17,19 @@ namespace PinchOfTheft.Interaction
         [SerializeField] private bool maskInput;
         [SerializeField] private bool allowKeyboardInput = true;
         [SerializeField, Min(0f)] private float errorShowTime = 1f;
+        private CodeLock activeLock;
+        private int InputLength => activeLock != null ? activeLock.CodeLength : puzzle != null ? puzzle.CodeLength : 0;
         private string input = "";
         private float errorUntil;
         public bool IsOpen { get; private set; }
-        public void Open()
+        public void Open() => OpenContext(null);
+        public void Open(CodeLock codeLock) { if (codeLock != null && codeLock.CanOpen) OpenContext(codeLock); }
+        private void OpenContext(CodeLock codeLock)
         {
             if (PinchOfTheft.Core.GameContext.Instance == null) return;
-            if (cameraManager == null || menu == null || menu.IsOpen || puzzle == null || !puzzle.CanOpen || panel == null) return;
+            if (IsOpen || cameraManager == null || cameraManager.ActiveCamera == null || menu == null || menu.IsOpen || panel == null) return;
+            if (codeLock == null && (puzzle == null || !puzzle.CanOpen)) return;
+            activeLock = codeLock;
             IsOpen = true;
             var context = PinchOfTheft.Core.GameContext.Instance;
             context.InputLock.Acquire(this);
@@ -35,6 +41,7 @@ namespace PinchOfTheft.Interaction
         {
             if (!IsOpen) return;
             IsOpen = false;
+            activeLock = null;
             input = "";
             errorUntil = 0f;
             if (panel != null) panel.SetActive(false);
@@ -48,7 +55,7 @@ namespace PinchOfTheft.Interaction
         }
         public void AddDigit(int digit)
         {
-            if (!IsOpen || puzzle == null || digit < 0 || digit > 9 || Time.unscaledTime < errorUntil || input.Length >= puzzle.CodeLength) return;
+            if (!IsOpen || InputLength <= 0 || digit < 0 || digit > 9 || Time.unscaledTime < errorUntil || input.Length >= InputLength) return;
             input += digit.ToString(); Refresh();
         }
         public void Erase()
@@ -58,14 +65,14 @@ namespace PinchOfTheft.Interaction
         }
         public void Submit()
         {
-            if (IsOpen && puzzle != null && input.Length == puzzle.CodeLength) puzzle.CheckCode(input);
+            if (IsOpen && InputLength > 0 && input.Length == InputLength) { if (activeLock != null) activeLock.CheckCode(input); else puzzle.CheckCode(input); }
         }
         public void ShowError() { input = ""; errorUntil = Time.unscaledTime + errorShowTime; Refresh(); }
         private void Refresh()
         {
-            if (display == null || puzzle == null) return;
+            if (display == null || InputLength <= 0) return;
             display.text = Time.unscaledTime < errorUntil ? "ERROR" :
-                (maskInput ? new string('*', input.Length) : input).PadRight(puzzle.CodeLength, '_');
+                (maskInput ? new string('*', input.Length) : input).PadRight(InputLength, '_');
         }
         private void Update()
         {
@@ -88,3 +95,4 @@ namespace PinchOfTheft.Interaction
         private void Start() => PinchOfTheft.Core.GameContext.Resolve(this);
     }
 }
+

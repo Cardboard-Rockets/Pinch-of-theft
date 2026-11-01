@@ -33,7 +33,7 @@ namespace PinchOfTheft.Editor
                 if(Time.frameCount<5||Time.frameCount<frame+2)return;
                 if(phase==0)
                 {
-                    flow=Object.FindAnyObjectByType<CurrentFlow>();start=Field<InteractableSphere>(flow,"startInteractable");elec=Object.FindObjectsByType<InteractableSphere>().Single(t=>t.name.Equals("elec",StringComparison.OrdinalIgnoreCase));fuse=Object.FindObjectsByType<InteractableSphere>().Single(t=>t.name.Equals("fu1",StringComparison.OrdinalIgnoreCase));current=Field<Transform>(flow,"currentObject");rotation=current.rotation;
+                    flow=Object.FindObjectsByType<CurrentFlow>().Single(f=>f.name=="wire1");start=Field<InteractableSphere>(flow,"startInteractable");elec=Object.FindObjectsByType<InteractableSphere>().Single(t=>t.name.Equals("elec",StringComparison.OrdinalIgnoreCase));fuse=Object.FindObjectsByType<InteractableSphere>().Single(t=>t.name.Equals("fu1",StringComparison.OrdinalIgnoreCase));current=Field<Transform>(flow,"currentObject");rotation=current.rotation;
                     Require(!start.IsAvailable&&Field<GameObject>(flow,"noPowerLabel").activeSelf,"Start has power initially");flow.Begin();Require(!flow.IsRunning,"Begin without power");
                     Field<UnityEvent>(flow,"onFuseFailed").AddListener(()=>failures++);Field<UnityEvent>(flow,"onFinished").AddListener(()=>finishes++);
                     elec.Complete();Require(start.IsAvailable&&!Field<GameObject>(flow,"noPowerLabel").activeSelf&&!elec.IsAvailable,"elec event failed");Set(flow,"speed",20f);start.Complete();Require(flow.IsRunning,"Start did not begin");first=current.position;phase=1;
@@ -72,4 +72,5 @@ namespace PinchOfTheft.Editor
         private static void Finish(int code){EditorApplication.update-=Tick;SessionState.SetBool("CircuitCheck",false);EditorApplication.Exit(code);}
     }
 }
+
 
