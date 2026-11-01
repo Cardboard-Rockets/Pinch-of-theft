@@ -1,0 +1,6 @@
+{
+  "name": "Runner",
+  "rootNamespace": "Runner",
+  "references": ["Unity.InputSystem", "Unity.TextMeshPro", "UnityEngine.UI"],
+  "autoReferenced": true
+}
